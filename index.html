@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AK | Theoretical Nuclear Physicist</title>
+  <title>Anil Kumar | Theoretical Nuclear Physicist</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; margin:0; padding:0; }
@@ -160,6 +160,76 @@
     .card a { color:#1a4f8a; text-decoration:none; }
     .card a:hover { color:#0d3566; }
 
+    /* ── CODE CARDS ──────────────────────────────────────── */
+    .code-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      gap: 26px; margin-top: 28px;
+    }
+    .code-card {
+      background: #fff;
+      border-radius: 14px;
+      border-top: 4px solid #1a4f8a;
+      box-shadow: 0 6px 24px rgba(0,0,0,.09);
+      padding: 28px 26px 22px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: transform .22s, box-shadow .22s;
+      text-decoration: none; color: inherit;
+    }
+    .code-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(26,79,138,.18);
+      border-top-color: #f6d365;
+    }
+    .code-card-header {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .code-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: linear-gradient(135deg, #1a4f8a, #0d3566);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px; color: white;
+    }
+    .code-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700;
+      color: #1a4f8a; line-height: 1.2;
+    }
+    .code-dev {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px; color: #555;
+      font-style: italic;
+      padding-left: 2px;
+    }
+    .code-dev span {
+      color: #1a2035; font-weight: 600; font-style: normal;
+    }
+    .code-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 6px;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+    .code-tag {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: #eef3fa; color: #1a4f8a;
+      padding: 4px 10px; border-radius: 20px;
+      font-weight: 700;
+    }
+    .code-arrow {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #1a4f8a; color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      transition: background .2s, transform .2s;
+    }
+    .code-card:hover .code-arrow {
+      background: #f6d365; color: #0a1024; transform: translateX(3px);
+    }
+
     /* ── BUTTONS ─────────────────────────────────────────── */
     .btn {
       display: inline-block; margin: 10px 10px 10px 0;
@@ -190,6 +260,167 @@
       text-align:center; padding:26px;
       font-size:14px; letter-spacing:1px;
     }
+
+    /* ── PUB CARDS (Google Scholar, INSPIRE, ORCID) ──────── */
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 22px; margin-top: 28px;
+    }
+    .pub-card {
+      border-radius: 14px;
+      padding: 26px 24px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+      text-decoration: none; color: inherit;
+      transition: transform .22s, box-shadow .22s;
+      position: relative; overflow: hidden;
+    }
+    .pub-card::before {
+      content:''; position:absolute; inset:0;
+      opacity:.07; border-radius:14px;
+    }
+    .pub-card:hover { transform:translateY(-5px); }
+    .pub-card-gs  { background:#fff; border:2px solid #4285F4; box-shadow:0 4px 18px rgba(66,133,244,.12); }
+    .pub-card-gs:hover  { box-shadow:0 12px 32px rgba(66,133,244,.22); }
+    .pub-card-ins { background:#fff; border:2px solid #e8521a; box-shadow:0 4px 18px rgba(232,82,26,.10); }
+    .pub-card-ins:hover { box-shadow:0 12px 32px rgba(232,82,26,.20); }
+    .pub-card-orc { background:#fff; border:2px solid #a6ce39; box-shadow:0 4px 18px rgba(166,206,57,.12); }
+    .pub-card-orc:hover { box-shadow:0 12px 32px rgba(166,206,57,.22); }
+
+    .pub-logo {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items:center; justify-content:center;
+      font-size: 22px; font-weight: 900;
+      flex-shrink: 0;
+    }
+    .pub-logo-gs  { background:#4285F4; color:white; font-family:'Libre Baskerville',serif; }
+    .pub-logo-ins { background:#e8521a; color:white; font-family:'Playfair Display',serif; }
+    .pub-logo-orc { background:#a6ce39; color:white; font-family:'Libre Baskerville',serif; }
+
+    .pub-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight:700; margin-top:4px;
+    }
+    .pub-name-gs  { color:#4285F4; }
+    .pub-name-ins { color:#e8521a; }
+    .pub-name-orc { color:#5a8a00; }
+
+    .pub-desc {
+      font-family: 'Crimson Pro', serif;
+      font-size: 14px; color:#666; line-height:1.5;
+    }
+    .pub-footer {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-top:8px; padding-top:12px; border-top:1px solid #eee;
+    }
+    .pub-tag-gs  { background:#eef3ff; color:#4285F4; font-family:'Libre Baskerville',serif; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-weight:700; }
+    .pub-tag-ins { background:#fff0eb; color:#e8521a; font-family:'Libre Baskerville',serif; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-weight:700; }
+    .pub-tag-orc { background:#f3fadf; color:#5a8a00; font-family:'Libre Baskerville',serif; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-weight:700; }
+    .pub-arrow-gs  { width:30px;height:30px;border-radius:50%;background:#4285F4;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s; }
+    .pub-arrow-ins { width:30px;height:30px;border-radius:50%;background:#e8521a;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s; }
+    .pub-arrow-orc { width:30px;height:30px;border-radius:50%;background:#a6ce39;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s; }
+    .pub-card:hover .pub-arrow-gs,
+    .pub-card:hover .pub-arrow-ins,
+    .pub-card:hover .pub-arrow-orc { transform:translateX(3px); background:#f6d365; color:#0a1024; }
+
+    /* ── CV CARD ─────────────────────────────────────────── */
+    .cv-card {
+      display: flex; align-items: center; gap: 28px;
+      background: #fff; border-radius: 16px;
+      border-left: 5px solid #1a4f8a;
+      box-shadow: 0 6px 24px rgba(0,0,0,.09);
+      padding: 28px 32px;
+      text-decoration: none; color: inherit;
+      max-width: 520px;
+      transition: transform .22s, box-shadow .22s;
+    }
+    .cv-card:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(26,79,138,.18); }
+    .cv-icon-box {
+      width: 60px; height: 60px; border-radius: 14px; flex-shrink:0;
+      background: linear-gradient(135deg,#1a4f8a,#0d3566);
+      display:flex; align-items:center; justify-content:center;
+      font-size: 26px; color:white;
+    }
+    .cv-text-box { flex:1; }
+    .cv-title {
+      font-family:'Playfair Display',serif; font-size:21px;
+      font-weight:700; color:#1a2035; margin-bottom:4px;
+    }
+    .cv-sub {
+      font-family:'Crimson Pro',serif; font-size:15px;
+      color:#666; font-style:italic;
+    }
+    .cv-dl-badge {
+      background:#1a4f8a; color:white;
+      font-family:'Libre Baskerville',serif;
+      font-size:12px; letter-spacing:1px; text-transform:uppercase;
+      padding:7px 16px; border-radius:6px; font-weight:700;
+      transition:background .2s;
+    }
+    .cv-card:hover .cv-dl-badge { background:#f6d365; color:#0a1024; }
+
+    /* ── PROFILE CARDS ───────────────────────────────────── */
+    .prof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 22px; margin-top: 28px;
+    }
+    .prof-card {
+      border-radius: 14px; padding: 24px 22px 18px;
+      display:flex; flex-direction:column; gap:10px;
+      text-decoration:none; color:inherit;
+      transition:transform .22s, box-shadow .22s;
+      background:#fff; border-top:4px solid #1a4f8a;
+      box-shadow:0 5px 18px rgba(0,0,0,.08);
+    }
+    .prof-card:hover { transform:translateY(-5px); box-shadow:0 14px 32px rgba(0,0,0,.14); }
+    .prof-card.tsukuba { border-top-color:#1a4f8a; }
+    .prof-card.riken   { border-top-color:#c0392b; }
+    .prof-card.linkedin{ border-top-color:#0077b5; }
+    .prof-card.github  { border-top-color:#1a2035; }
+
+    .prof-logo {
+      width:44px; height:44px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; font-weight:900; color:white; flex-shrink:0;
+    }
+    .prof-logo.tsukuba { background:#1a4f8a; font-family:'Playfair Display',serif; }
+    .prof-logo.riken   { background:#c0392b; font-family:'Playfair Display',serif; }
+    .prof-logo.linkedin{ background:#0077b5; }
+    .prof-logo.github  { background:#1a2035; }
+
+    .prof-name {
+      font-family:'Playfair Display',serif; font-size:17px;
+      font-weight:700; color:#1a2035; line-height:1.25;
+    }
+    .prof-sub {
+      font-family:'Crimson Pro',serif; font-size:13.5px;
+      color:#666; font-style:italic; line-height:1.4;
+    }
+    .prof-footer {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-top:6px; padding-top:10px; border-top:1px solid #eee;
+    }
+    .prof-tag {
+      font-family:'Libre Baskerville',serif; font-size:10.5px;
+      letter-spacing:1.2px; text-transform:uppercase;
+      padding:3px 9px; border-radius:20px; font-weight:700;
+    }
+    .tsukuba .prof-tag { background:#eef3ff; color:#1a4f8a; }
+    .riken   .prof-tag { background:#fdf0ee; color:#c0392b; }
+    .linkedin .prof-tag{ background:#e8f4fb; color:#0077b5; }
+    .github  .prof-tag { background:#f0f0f2; color:#1a2035; }
+
+    .prof-arrow {
+      width:28px; height:28px; border-radius:50%; color:white;
+      display:flex; align-items:center; justify-content:center;
+      font-size:14px; transition:background .2s, transform .2s;
+    }
+    .tsukuba .prof-arrow  { background:#1a4f8a; }
+    .riken   .prof-arrow  { background:#c0392b; }
+    .linkedin .prof-arrow { background:#0077b5; }
+    .github  .prof-arrow  { background:#1a2035; }
+    .prof-card:hover .prof-arrow { background:#f6d365; color:#0a1024; transform:translateX(3px); }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
     @media(max-width:900px){
@@ -238,17 +469,16 @@
     <div class="about-text">
       <h2>Brief Bio-Data</h2>
       <p>
-      I am a theoretical nuclear physicist working on nuclear structure,
-      weak interaction processes, and large-scale nuclear shell-model calculations.
-      My research focuses on beta decay, nuclear many-body methods, Monte Carlo Shell Model
-      (MCSM), No-Core Monte Carlo Shell Model (NC-MCSM), and ab initio approaches such as the Valence-Space In-Medium Similarity
-      Renormalization Group (VS-IMSRG).
+        I am a theoretical nuclear physicist working on nuclear structure, weak interaction
+        processes, and large-scale nuclear shell-model calculations. My research focuses on
+        beta decay, nuclear many-body methods, Monte Carlo Shell Model (MCSM),
+        No-Core Monte Carlo Shell Model (NC-MCSM), and ab initio approaches such as the Valence-Space In-Medium Similarity
+        Renormalization Group (VS-IMSRG).
       </p>
-
       <p style="margin-top:16px;">
-      More recently, I have been exploring Artificial Intelligence (AI) and Quantum Computing
-      applications in nuclear many-body physics, with the goal of developing next-generation
-      computational approaches for nuclear structure calculations.
+        More recently, I have been exploring Artificial Intelligence (AI) and Quantum Computing
+        applications in nuclear many-body physics, with the goal of developing next-generation
+        computational approaches for nuclear structure calculations.
       </p>
     </div>
   </div>
@@ -272,36 +502,156 @@
 <!-- ── PUBLICATIONS ──────────────────────────────────────── -->
 <section id="publications">
   <h2>Publications &amp; Research Profiles</h2>
-  <p style="font-size:17px;margin-bottom:18px;">My publications, citation records, and research profiles can be accessed through:</p>
-  <a class="btn" href="https://scholar.google.com/citations?user=5_NC7zQAAAAJ&hl=en" target="_blank">Google Scholar</a>
-  <a class="btn" href="https://inspirehep.net/authors/2641430" target="_blank">INSPIRE-HEP</a>
-  <a class="btn" href="https://orcid.org/0000-0003-3299-0435" target="_blank">ORCID</a>
+  <p style="font-size:17px;margin-bottom:6px;">My publications, citation records, and research profiles:</p>
+  <div class="pub-grid">
+
+    <!-- Google Scholar -->
+    <a class="pub-card pub-card-gs" href="https://scholar.google.com/citations?user=5_NC7zQAAAAJ&hl=en" target="_blank">
+      <div class="pub-logo pub-logo-gs">G</div>
+      <div class="pub-name pub-name-gs">Google Scholar</div>
+      <div class="pub-desc">Publication list, citations,<br>and h-index metrics</div>
+      <div class="pub-footer">
+        <span class="pub-tag-gs">Citations</span>
+        <span class="pub-arrow-gs">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- INSPIRE-HEP -->
+    <a class="pub-card pub-card-ins" href="https://inspirehep.net/authors/2641430" target="_blank">
+      <div class="pub-logo pub-logo-ins">iN</div>
+      <div class="pub-name pub-name-ins">INSPIRE-HEP</div>
+      <div class="pub-desc">High-energy &amp; nuclear physics<br>literature database</div>
+      <div class="pub-footer">
+        <span class="pub-tag-ins">HEP Database</span>
+        <span class="pub-arrow-ins">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- ORCID -->
+    <a class="pub-card pub-card-orc" href="https://orcid.org/0000-0003-3299-0435" target="_blank">
+      <div class="pub-logo pub-logo-orc">iD</div>
+      <div class="pub-name pub-name-orc">ORCID</div>
+      <div class="pub-desc">Unique researcher identifier<br>0000-0003-3299-0435</div>
+      <div class="pub-footer">
+        <span class="pub-tag-orc">Researcher ID</span>
+        <span class="pub-arrow-orc">&#8594;</span>
+      </div>
+    </a>
+
+  </div>
 </section>
 
 <!-- ── CV ────────────────────────────────────────────────── -->
 <section id="cv" class="dark">
   <h2>Curriculum Vitae</h2>
-  <p style="font-size:17px;margin-bottom:18px;">A complete copy of my CV can be downloaded below.</p>
-  <a class="btn" href="Anil_Kumar_CV.pdf" target="_blank">Download CV (PDF)</a>
+  <p style="font-size:17px;margin-bottom:22px;">A complete copy of my CV can be downloaded below.</p>
+  <a class="cv-card" href="Anil_Kumar_CV.pdf" target="_blank">
+    <div class="cv-icon-box">&#128196;</div>
+    <div class="cv-text-box">
+      <div class="cv-title">Curriculum Vitae</div>
+      <div class="cv-sub">Dr. Anil Kumar &nbsp;·&nbsp; Theoretical Nuclear Physics</div>
+    </div>
+    <span class="cv-dl-badge">&#8595; PDF</span>
+  </a>
 </section>
 
 <!-- ── PROFILES ──────────────────────────────────────────── -->
 <section id="profiles">
   <h2>Professional Profiles</h2>
-  <p style="font-size:17px;margin-bottom:18px;">My institutional and professional profiles are available here:</p>
-  <a class="btn" href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">University of Tsukuba</a>
-  <a class="btn" href="https://rq.riken.jp/en/members/" target="_blank">RIKEN TRIP</a>
-  <a class="btn" href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">LinkedIn</a>
-  <a class="btn" href="https://github.com/khichar1993" target="_blank">GitHub</a>
+  <p style="font-size:17px;margin-bottom:6px;">My institutional and professional profiles:</p>
+  <div class="prof-grid">
+
+    <!-- Tsukuba -->
+    <a class="prof-card tsukuba" href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">
+      <div class="prof-logo tsukuba">T</div>
+      <div class="prof-name">University of Tsukuba</div>
+      <div class="prof-sub">Center for Computational Sciences, Japan</div>
+      <div class="prof-footer">
+        <span class="prof-tag">Postdoctoral</span>
+        <span class="prof-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- RIKEN -->
+    <a class="prof-card riken" href="https://rq.riken.jp/en/members/" target="_blank">
+      <div class="prof-logo riken">R</div>
+      <div class="prof-name">RIKEN TRIP</div>
+      <div class="prof-sub">Visiting Scientist, Japan</div>
+      <div class="prof-footer">
+        <span class="prof-tag">Visiting Scientist</span>
+        <span class="prof-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="prof-card linkedin" href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">
+      <div class="prof-logo linkedin">in</div>
+      <div class="prof-name">LinkedIn</div>
+      <div class="prof-sub">Professional network &amp; career profile</div>
+      <div class="prof-footer">
+        <span class="prof-tag">Network</span>
+        <span class="prof-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- GitHub -->
+    <a class="prof-card github" href="https://github.com/khichar1993" target="_blank">
+      <div class="prof-logo github">&#9670;</div>
+      <div class="prof-name">GitHub</div>
+      <div class="prof-sub">Code repositories &amp; open-source projects</div>
+      <div class="prof-footer">
+        <span class="prof-tag">Code</span>
+        <span class="prof-arrow">&#8594;</span>
+      </div>
+    </a>
+
+  </div>
 </section>
 
 <!-- ── IMPORTANT LINKS ───────────────────────────────────── -->
 <section id="links" class="dark">
   <h2>Important Links</h2>
-  <div class="grid">
-    <div class="card"><a href="https://sites.google.com/alumni.tsukuba.ac.jp/kshell-nuclear/" target="_blank">KSHELL Code</a></div>
-    <div class="card"><a href="https://github.com/ragnarstroberg/imsrg" target="_blank">VS-IMSRG Code</a></div>
-    <div class="card"><a href="https://github.com/Takayuki-Miyagi/NuHamil-public" target="_blank">NuHamil Code</a></div>
+  <div class="code-grid">
+
+    <!-- KSHELL -->
+    <a class="code-card" href="https://sites.google.com/alumni.tsukuba.ac.jp/kshell-nuclear/" target="_blank">
+      <div class="code-card-header">
+        <div class="code-icon">&#9671;</div>
+        <div class="code-name">KSHELL</div>
+      </div>
+      <div class="code-dev">Developed by <span>N. Shimizu</span></div>
+      <div class="code-footer">
+        <span class="code-tag">Shell Model</span>
+        <span class="code-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- VS-IMSRG -->
+    <a class="code-card" href="https://github.com/ragnarstroberg/imsrg" target="_blank">
+      <div class="code-card-header">
+        <div class="code-icon">&#9651;</div>
+        <div class="code-name">VS-IMSRG</div>
+      </div>
+      <div class="code-dev">Developed by <span>R. Stroberg</span></div>
+      <div class="code-footer">
+        <span class="code-tag">Ab Initio</span>
+        <span class="code-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- NuHamil -->
+    <a class="code-card" href="https://github.com/Takayuki-Miyagi/NuHamil-public" target="_blank">
+      <div class="code-card-header">
+        <div class="code-icon">&#9670;</div>
+        <div class="code-name">NuHamil</div>
+      </div>
+      <div class="code-dev">Developed by <span>T. Miyagi</span></div>
+      <div class="code-footer">
+        <span class="code-tag">Interaction</span>
+        <span class="code-arrow">&#8594;</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
