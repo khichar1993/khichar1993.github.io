@@ -4,126 +4,60 @@
   <title>Anil Kumar | Theoretical Nuclear Physicist</title>
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f6f1ea;
-      color: #222;
-      line-height: 1.6;
-    }
+    body { margin:0; font-family: Georgia, serif; color:#222; background:#fff; line-height:1.8; }
 
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 16px 40px;
-      background: rgba(20,28,48,.94);
-      z-index: 10;
+      position: fixed; top:0; width:100%; z-index:10;
+      background:rgba(20,28,48,.92);
+      padding:14px 40px; text-align:right;
     }
-
-    nav a {
-      color: white;
-      margin-right: 22px;
-      text-decoration: none;
-      letter-spacing: 2px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    nav a:hover { color: #f6d365; }
+    nav .brand { float:left; color:white; font-weight:bold; letter-spacing:2px; }
+    nav a { color:white; margin-left:22px; text-decoration:none; font-size:15px; }
+    nav a:hover { color:#f6d365; }
 
     header {
-      min-height: 100vh;
-      background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.62)),
-                  url("background.png");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      padding: 0 12%;
-      color: white;
+      height:72vh;
+      background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url("background.png");
+      background-size:cover; background-position:center;
+      display:flex; align-items:center; padding:0 12%; color:white;
     }
+    .hero h1 { font-size:58px; margin-bottom:10px; }
+    .hero p { font-size:20px; letter-spacing:2px; color:#f6d365; font-weight:bold; }
 
-    .hero { max-width: 850px; }
+    section { padding:60px 12%; }
+    h2 { font-size:32px; color:#1f2937; border-bottom:3px solid #b8895b; display:inline-block; }
 
-    .name {
-      font-size: 64px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      letter-spacing: 4px;
-      color: #f6d365;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .hero p { font-size: 20px; }
-
-    section {
-      padding: 70px 12%;
-      background: white;
-    }
-
-    section:nth-child(even) { background: #f6f1ea; }
-
-    h2 {
-      font-size: 34px;
-      color: #1f2937;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #b8895b;
-      display: inline-block;
-      padding-bottom: 6px;
-    }
+    .about-box { display:flex; gap:45px; align-items:center; }
+    .about-box img { width:260px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.25); }
+    .about-text { flex:1; text-align:justify; }
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 25px;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:22px; margin-top:25px;
     }
-
     .card {
-      padding: 24px;
-      background: white;
-      border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.10);
-      border-left: 5px solid #b8895b;
-      font-weight: bold;
+      background:#f6f1ea; padding:22px; border-radius:12px;
+      border-left:5px solid #b8895b; box-shadow:0 5px 15px rgba(0,0,0,.08);
+      font-weight:bold;
     }
 
-    .profile-links a, .btn {
-      display: inline-block;
-      margin: 10px 10px 10px 0;
-      padding: 12px 22px;
-      background: #1f2937;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+    .btn {
+      display:inline-block; margin:10px 10px 10px 0; padding:12px 22px;
+      background:#1f2937; color:white; text-decoration:none; border-radius:8px; font-weight:bold;
     }
+    .btn:hover { background:#b8895b; }
 
-    .profile-links a:hover, .btn:hover {
-      background: #b8895b;
-    }
+    .dark { background:#f6f1ea; }
+    .contact-box { background:#1f2937; color:white; padding:28px; border-radius:12px; }
+    .contact-box a { color:#f6d365; }
 
-    .contact-box {
-      background: #1f2937;
-      color: white;
-      padding: 30px;
-      border-radius: 14px;
-      max-width: 850px;
-    }
+    footer { background:#111827; color:white; text-align:center; padding:22px; }
 
-    .contact-box a { color: #f6d365; }
-
-    footer {
-      padding: 25px;
-      text-align: center;
-      background: #111827;
-      color: white;
+    @media(max-width:800px){
+      nav { text-align:center; }
+      nav .brand { float:none; display:block; margin-bottom:8px; }
+      .about-box { flex-direction:column; }
+      .hero h1 { font-size:42px; }
     }
   </style>
 </head>
@@ -131,60 +65,56 @@
 <body>
 
 <nav>
-  <a href="#home">HOME</a>
-  <a href="#about">ABOUT</a>
-  <a href="#research">RESEARCH</a>
-  <a href="#publications">PUBLICATIONS</a>
+  <span class="brand">ANIL KUMAR</span>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#publications">Publications</a>
   <a href="#cv">CV</a>
-  <a href="#profiles">PROFILES</a>
-  <a href="#contact">CONTACT</a>
+  <a href="#profiles">Profiles</a>
+  <a href="#links">Important Links</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <header id="home">
   <div class="hero">
-    <div class="name">Anil Kumar</div>
-    <div class="subtitle">THEORETICAL NUCLEAR PHYSICIST</div>
-
-    <p>
-      Postdoctoral Researcher<br>
-      Center for Computational Sciences, University of Tsukuba, Japan
-    </p>
-
-    <p>
-      Visiting Scientist<br>
-      TRIP Headquarters, RIKEN, Japan
-    </p>
-
-    <a class="btn" href="#about">About Me</a>
-    <a class="btn" href="Anil_Kumar_CV.pdf" target="_blank">Download CV</a>
+    <h1>Anil Kumar</h1>
+    <p>THEORETICAL NUCLEAR PHYSICIST</p>
+    <p>University of Tsukuba, Japan | RIKEN, Japan</p>
   </div>
 </header>
 
 <section id="about">
-  <h2>Brief Bio-Data</h2>
+  <div class="about-box">
+    <img src="profile.png" alt="Anil Kumar">
 
-  <p>
-    I am a theoretical nuclear physicist working on nuclear structure,
-    weak interaction processes, and large-scale nuclear shell-model calculations.
-    My research focuses on beta decay, nuclear many-body methods, Monte Carlo Shell Model
-    (MCSM), No-Core Monte Carlo Shell Model (NC-MCSM), and ab initio approaches such as the Valence-Space In-Medium Similarity
-    Renormalization Group (VS-IMSRG).
-  </p>
-
-  <p>
-    More recently, I have been exploring Artificial Intelligence (AI) and Quantum Computing
-    applications in nuclear many-body physics, with the goal of developing next-generation
-    computational approaches for nuclear structure calculations.
-  </p>
+    <div class="about-text">
+      <h2>Brief Bio-Data</h2>
+      <p>
+        I am a theoretical nuclear physicist working on nuclear structure, weak interaction
+        processes, and large-scale nuclear shell-model calculations. My research focuses on
+        beta decay, nuclear many-body methods, Monte Carlo Shell Model (MCSM),
+        No-Core Monte Carlo Shell Model (NC-MCSM), Quasiparticle-Vacuum Shell Model (QVSM),
+        and ab initio approaches such as the Valence-Space In-Medium Similarity
+        Renormalization Group (VS-IMSRG).
+      </p>
+      <p>
+        Currently, I am a Postdoctoral Researcher at the Center for Computational Sciences,
+        University of Tsukuba, Japan, and a Visiting Scientist at TRIP Headquarters,
+        RIKEN, Japan. I am also exploring Artificial Intelligence and Quantum Computing
+        applications in nuclear many-body physics.
+      </p>
+    </div>
+  </div>
 </section>
 
-<section id="research">
+<section id="research" class="dark">
   <h2>Research Interests</h2>
-
   <div class="grid">
     <div class="card">Nuclear Structure Theory and Shell Evolution</div>
     <div class="card">Large-Scale Nuclear Shell-Model Calculations</div>
     <div class="card">Monte Carlo Shell Model and No-Core MCSM</div>
+    <div class="card">Quasiparticle-Vacuum Shell Model and Nuclear Deformation</div>
     <div class="card">Beta Decay and Nuclear Weak Processes</div>
     <div class="card">VS-IMSRG and Ab Initio Nuclear Many-Body Methods</div>
     <div class="card">Artificial Intelligence Applications in Nuclear Physics</div>
@@ -195,91 +125,51 @@
 
 <section id="publications">
   <h2>Publications & Research Profiles</h2>
-
-  <p>
-    My publications, citation records, and academic research profiles can be accessed through the following links:
-  </p>
-
-  <div class="profile-links">
-    <a href="https://scholar.google.com/citations?user=5_NC7zQAAAAJ&hl=en" target="_blank">
-      Google Scholar
-    </a>
-
-    <a href="https://inspirehep.net/authors/2641430" target="_blank">
-      INSPIRE-HEP
-    </a>
-
-    <a href="https://orcid.org/0000-0003-3299-0435" target="_blank">
-      ORCID
-    </a>
-  </div>
+  <p>My publications, citation records, and research profiles can be accessed through:</p>
+  <a class="btn" href="https://scholar.google.com/citations?user=5_NC7zQAAAAJ&hl=en" target="_blank">Google Scholar</a>
+  <a class="btn" href="https://inspirehep.net/authors/2641430" target="_blank">INSPIRE-HEP</a>
+  <a class="btn" href="https://orcid.org/0000-0003-3299-0435" target="_blank">ORCID</a>
 </section>
 
-<section id="cv">
+<section id="cv" class="dark">
   <h2>Curriculum Vitae</h2>
-
-  <p>
-    A complete copy of my Curriculum Vitae can be downloaded below.
-  </p>
-
-  <div class="profile-links">
-    <a href="Anil_Kumar_CV.pdf" target="_blank">
-      Download CV (PDF)
-    </a>
-  </div>
+  <p>A complete copy of my CV can be downloaded below.</p>
+  <a class="btn" href="Anil_Kumar_CV.pdf" target="_blank">Download CV</a>
 </section>
 
 <section id="profiles">
   <h2>Professional Profiles</h2>
+  <p>My institutional and professional profiles are available here:</p>
+  <a class="btn" href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">University of Tsukuba</a>
+  <a class="btn" href="https://rq.riken.jp/en/members/" target="_blank">RIKEN TRIP</a>
+  <a class="btn" href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">LinkedIn</a>
+  <a class="btn" href="https://github.com/khichar1993" target="_blank">GitHub</a>
+</section>
 
-  <p>
-    My institutional and professional profiles are available through the following links:
-  </p>
-
-  <div class="profile-links">
-    <a href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">
-      University of Tsukuba Profile
-    </a>
-
-    <a href="https://rq.riken.jp/en/members/" target="_blank">
-      RIKEN TRIP Profile
-    </a>
-
-    <a href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">
-      LinkedIn
-    </a>
-
-    <a href="https://github.com/khichar1993" target="_blank">
-      GitHub
-    </a>
+<section id="links" class="dark">
+  <h2>Important Links</h2>
+  <div class="grid">
+    <div class="card"><a href="https://www.ccs.tsukuba.ac.jp/eng/" target="_blank">Center for Computational Sciences, University of Tsukuba</a></div>
+    <div class="card"><a href="https://www.riken.jp/en/" target="_blank">RIKEN, Japan</a></div>
+    <div class="card"><a href="https://www.tifr.res.in/" target="_blank">Tata Institute of Fundamental Research</a></div>
+    <div class="card"><a href="https://www.nndc.bnl.gov/" target="_blank">NNDC Nuclear Data Center</a></div>
+    <div class="card"><a href="https://www.nishina.riken.jp/" target="_blank">RIKEN Nishina Center</a></div>
+    <div class="card"><a href="https://github.com/kshell-nucl/kshell" target="_blank">KSHELL Code</a></div>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-
   <div class="contact-box">
-    <p>
-      <strong>Email:</strong><br>
+    <p><strong>Email:</strong><br>
       akumar5@ph.iitr.ac.in<br>
       anilkhichar102@gmail.com
     </p>
-
-    <p>
-      <strong>Current Affiliation:</strong><br>
-      Center for Computational Sciences<br>
-      University of Tsukuba, Japan
+    <p><strong>Current Affiliation:</strong><br>
+      Center for Computational Sciences, University of Tsukuba, Japan
     </p>
-
-    <p>
-      <strong>Additional Affiliation:</strong><br>
-      Visiting Scientist, TRIP Headquarters<br>
-      RIKEN, Japan
-    </p>
-
-    <p>
-      <strong>GitHub:</strong>
-      <a href="https://github.com/khichar1993" target="_blank">khichar1993</a>
+    <p><strong>Additional Affiliation:</strong><br>
+      Visiting Scientist, TRIP Headquarters, RIKEN, Japan
     </p>
   </div>
 </section>
