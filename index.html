@@ -1,679 +1,526 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Anil Kumar | Theoretical Nuclear Physicist</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; margin:0; padding:0; }
-    body { font-family: 'Crimson Pro', Georgia, serif; color:#222; background:#fff; line-height:1.85; }
+    *{box-sizing:border-box;scroll-behavior:smooth;margin:0;padding:0}
+    body{font-family:'Crimson Pro',Georgia,serif;color:#222;background:#fff;line-height:1.85}
 
-    /* ── NAV ─────────────────────────────────────────────── */
-    nav {
-      position: fixed; top:0; width:100%; z-index:100;
-      background: rgba(10,16,36,.96);
-      padding: 16px 48px;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid rgba(246,211,101,.18);
-      backdrop-filter: blur(6px);
+    /* ── NAV ──────────────────────────────────────────── */
+    nav{
+      position:fixed;top:0;width:100%;z-index:200;
+      background:rgba(10,16,36,.97);
+      padding:14px 48px;
+      display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid rgba(246,211,101,.18);
+      backdrop-filter:blur(8px);
     }
-    nav .brand {
-      color: #f6d365;
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      letter-spacing: 3px;
-      font-weight: 900;
+    nav .brand{
+      color:#f6d365;font-family:'Playfair Display',serif;
+      font-size:20px;letter-spacing:3px;font-weight:900;
+      cursor:pointer;
     }
-    nav .links a {
-      display: inline-block;
-      margin-left: 8px;
-      padding: 7px 15px;
-      text-decoration: none;
-      font-family: 'Libre Baskerville', serif;
-      font-size: 12.5px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      font-weight: 700;
-      border-radius: 4px;
-      color: rgba(255,255,255,.88);
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,.22);
-      transition: background .22s, color .22s, border-color .22s, transform .18s;
+    nav .links a{
+      display:inline-block;margin-left:7px;padding:6px 13px;
+      text-decoration:none;font-family:'Libre Baskerville',serif;
+      font-size:12px;letter-spacing:1.1px;text-transform:uppercase;
+      font-weight:700;border-radius:4px;
+      color:rgba(255,255,255,.85);background:transparent;
+      border:1.5px solid rgba(255,255,255,.20);
+      transition:background .2s,color .2s,border-color .2s,transform .16s;
     }
-    nav .links a:hover {
-      background: #f6d365;
-      color: #0a1024;
-      border-color: #f6d365;
-      transform: translateY(-2px);
+    nav .links a:hover,nav .links a.active{
+      background:#f6d365;color:#0a1024;
+      border-color:#f6d365;transform:translateY(-2px);
     }
 
-    /* ── HERO ────────────────────────────────────────────── */
-    header#home {
-      min-height: 88vh;
+    /* ── HERO — always visible, sticky below nav ──────── */
+    #hero-bar{
+      position:sticky;top:56px;z-index:100;
+      min-height:92vh;
       background:
-        linear-gradient(155deg, rgba(5,10,28,.82) 40%, rgba(30,12,8,.72) 100%),
+        linear-gradient(155deg,rgba(5,10,28,.83) 40%,rgba(30,12,8,.73) 100%),
         url("background.png") center/cover no-repeat;
-      display: flex; align-items: center;
-      padding: 0 12%;
-      position: relative;
-      overflow: hidden;
+      display:flex;align-items:center;padding:0 12%;
+      overflow:hidden;
     }
-
-    /* subtle grain overlay */
-    header#home::before {
-      content:'';
-      position:absolute; inset:0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-      pointer-events:none; opacity:.35;
+    #hero-bar::before{
+      content:'';position:absolute;inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      pointer-events:none;opacity:.35;
     }
-
-    /* gold accent line */
-    header#home::after {
-      content:'';
-      position:absolute; left:12%; top:0; bottom:0;
-      width:2px;
-      background: linear-gradient(to bottom, transparent 10%, #f6d365 40%, #f6d365 60%, transparent 90%);
+    #hero-bar::after{
+      content:'';position:absolute;left:12%;top:0;bottom:0;width:2px;
+      background:linear-gradient(to bottom,transparent 10%,#f6d365 40%,#f6d365 60%,transparent 90%);
       opacity:.55;
     }
-
-    .hero {
-      position:relative; z-index:1;
-      padding-left: 28px;
+    .hero{position:relative;z-index:1;padding-left:28px;}
+    .hero h1{
+      font-family:'Playfair Display',serif;font-size:90px;font-weight:900;
+      line-height:1.05;color:#f0ede8;margin-bottom:20px;
+      text-shadow:0 4px 32px rgba(0,0,0,.45);letter-spacing:-1px;
+    }
+    .hero-divider{width:60px;height:2px;background:#f6d365;margin-bottom:32px;opacity:.8;}
+    .hero-title{
+      font-family:'Libre Baskerville',serif;font-size:22px;letter-spacing:4px;
+      color:#f6d365;font-weight:700;text-transform:uppercase;margin-bottom:12px;
+      text-shadow:0 2px 12px rgba(0,0,0,.4);
+    }
+    .hero-affiliation{
+      font-family:'Crimson Pro',serif;font-size:28px;
+      color:rgba(255,255,255,.85);font-style:italic;letter-spacing:1px;
     }
 
-.hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 90px;
-      font-weight: 900;
-      line-height: 1.05;
-      color: #f0ede8;
-      margin-bottom: 22px;
-      text-shadow: 0 4px 32px rgba(0,0,0,.45);
-      letter-spacing: -1px;
+    /* ── CONTENT PANEL — shown/hidden per section ─────── */
+    #content-panel{
+      position:relative;z-index:50;
+      min-height:0;
+      transition:min-height .3s;
     }
 
-    .hero-title {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 22px;
-      letter-spacing: 4px;
-      color: #f6d365;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      text-shadow: 0 2px 12px rgba(0,0,0,.4);
+    /* All sections hidden by default */
+    .page-section{
+      display:none;
+      padding:72px 12%;
+      animation:fadeIn .35s ease;
+    }
+    .page-section.active{display:block;}
+
+    /* Gold background when active */
+    .page-section.active{background:#fffbee;}
+
+    /* Sections that were previously "dark" keep a slightly warmer gold */
+    .page-section.dark-base.active{background:#fff8e1;}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+    h2{
+      font-family:'Playfair Display',serif;font-size:36px;color:#1a2035;
+      border-bottom:3px solid #b8895b;display:inline-block;
+      padding-bottom:4px;margin-bottom:32px;
     }
 
-    .hero-affiliation {
-      font-family: 'Crimson Pro', serif;
-      font-size: 28px;
-      color: rgba(255,255,255,.85);
-      font-style: italic;
-      letter-spacing: 1px;
-      margin-bottom: 36px;
-    }
+    /* ── ABOUT ────────────────────────────────────────── */
+    .about-box{display:flex;gap:50px;align-items:center;}
+    .about-box img{width:270px;border-radius:14px;box-shadow:0 12px 36px rgba(0,0,0,.22);}
+    .about-text{flex:1;text-align:justify;font-size:18px;}
 
-    .hero-divider {
-      width: 60px; height: 2px;
-      background: #f6d365;
-      margin-bottom: 36px;
-      opacity: .8;
+    /* ── RESEARCH CARDS ───────────────────────────────── */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:20px;}
+    .card{
+      background:#fff;padding:22px 20px 22px 22px;border-radius:12px;
+      border-left:5px solid #b8895b;box-shadow:0 5px 18px rgba(0,0,0,.08);
+      font-weight:700;font-family:'Libre Baskerville',serif;font-size:15px;color:#1a2035;
+      transition:transform .2s,box-shadow .2s;
     }
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.13);}
+    .card a{color:#1a4f8a;text-decoration:none;}
+    .card a:hover{color:#0d3566;}
 
-    /* ── SECTIONS ────────────────────────────────────────── */
-    section { padding: 72px 12%; }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      color: #1a2035;
-      border-bottom: 3px solid #b8895b;
-      display: inline-block;
-      padding-bottom: 4px;
-      margin-bottom: 32px;
+    /* ── CODE CARDS ───────────────────────────────────── */
+    .code-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:28px;}
+    .code-card{
+      background:#fff;border-radius:14px;border-top:4px solid #1a4f8a;
+      box-shadow:0 6px 24px rgba(0,0,0,.09);padding:28px 26px 22px;
+      display:flex;flex-direction:column;gap:10px;
+      transition:transform .22s,box-shadow .22s;text-decoration:none;color:inherit;
     }
+    .code-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(26,79,138,.18);border-top-color:#f6d365;}
+    .code-card-header{display:flex;align-items:center;gap:12px;}
+    .code-icon{
+      width:42px;height:42px;border-radius:10px;
+      background:linear-gradient(135deg,#1a4f8a,#0d3566);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:white;
+    }
+    .code-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1a4f8a;line-height:1.2;}
+    .code-dev{font-family:'Crimson Pro',serif;font-size:15px;color:#555;font-style:italic;padding-left:2px;}
+    .code-dev span{color:#1a2035;font-weight:600;font-style:normal;}
+    .code-footer{display:flex;align-items:center;justify-content:space-between;margin-top:6px;padding-top:12px;border-top:1px solid #eee;}
+    .code-tag{font-family:'Libre Baskerville',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;background:#eef3fa;color:#1a4f8a;padding:4px 10px;border-radius:20px;font-weight:700;}
+    .code-arrow{width:30px;height:30px;border-radius:50%;background:#1a4f8a;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s;}
+    .code-card:hover .code-arrow{background:#f6d365;color:#0a1024;transform:translateX(3px);}
 
-    /* ── ABOUT ───────────────────────────────────────────── */
-    .about-box { display:flex; gap:50px; align-items:center; }
-    .about-box img {
-      width: 270px; border-radius: 14px;
-      box-shadow: 0 12px 36px rgba(0,0,0,.22);
-    }
-    .about-text { flex:1; text-align:justify; font-size:18px; }
-
-    /* ── CARDS / GRID ────────────────────────────────────── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 22px; margin-top:20px;
-    }
-    .card {
-      background: #fff;
-      padding: 22px 20px 22px 22px;
-      border-radius: 12px;
-      border-left: 5px solid #b8895b;
-      box-shadow: 0 5px 18px rgba(0,0,0,.08);
-      font-weight: 700;
-      font-family: 'Libre Baskerville', serif;
-      font-size: 15px;
-      color: #1a2035;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .card:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,.13); }
-    .card a { color:#1a4f8a; text-decoration:none; }
-    .card a:hover { color:#0d3566; }
-
-    /* ── CODE CARDS ──────────────────────────────────────── */
-    .code-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 26px; margin-top: 28px;
-    }
-    .code-card {
-      background: #fff;
-      border-radius: 14px;
-      border-top: 4px solid #1a4f8a;
-      box-shadow: 0 6px 24px rgba(0,0,0,.09);
-      padding: 28px 26px 22px;
-      display: flex; flex-direction: column; gap: 10px;
-      transition: transform .22s, box-shadow .22s;
-      text-decoration: none; color: inherit;
-    }
-    .code-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 36px rgba(26,79,138,.18);
-      border-top-color: #f6d365;
-    }
-    .code-card-header {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .code-icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: linear-gradient(135deg, #1a4f8a, #0d3566);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: 18px; color: white;
-    }
-    .code-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 700;
-      color: #1a4f8a; line-height: 1.2;
-    }
-    .code-dev {
-      font-family: 'Crimson Pro', serif;
-      font-size: 15px; color: #555;
-      font-style: italic;
-      padding-left: 2px;
-    }
-    .code-dev span {
-      color: #1a2035; font-weight: 600; font-style: normal;
-    }
-    .code-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 6px;
-      padding-top: 12px;
-      border-top: 1px solid #eee;
-    }
-    .code-tag {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 11px; letter-spacing: 1.5px;
-      text-transform: uppercase;
-      background: #eef3fa; color: #1a4f8a;
-      padding: 4px 10px; border-radius: 20px;
-      font-weight: 700;
-    }
-    .code-arrow {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: #1a4f8a; color: white;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
-      transition: background .2s, transform .2s;
-    }
-    .code-card:hover .code-arrow {
-      background: #f6d365; color: #0a1024; transform: translateX(3px);
-    }
-
-    /* ── BUTTONS ─────────────────────────────────────────── */
-    .btn {
-      display: inline-block; margin: 10px 10px 10px 0;
-      padding: 12px 24px;
-      background: #1a2035; color: white;
-      text-decoration: none; border-radius: 8px;
-      font-weight: 700; font-family:'Libre Baskerville',serif;
-      font-size: 14px; letter-spacing:.5px;
-      transition: background .25s, transform .2s;
-    }
-    .btn:hover { background:#b8895b; transform:translateY(-2px); }
-
-    /* ── ALTERNATING BG ──────────────────────────────────── */
-    .dark { background: #f6f1ea; }
-
-    /* ── CONTACT ─────────────────────────────────────────── */
-    .contact-box {
-      background: #1a2035; color:white;
-      padding: 34px 38px; border-radius:14px;
-      font-size: 17px; line-height:2;
-    }
-    .contact-box a { color:#f6d365; }
-    .contact-box strong { color:#f6d365; font-family:'Libre Baskerville',serif; }
-
-    /* ── FOOTER ──────────────────────────────────────────── */
-    footer {
-      background: #0d1322; color:rgba(255,255,255,.55);
-      text-align:center; padding:26px;
-      font-size:14px; letter-spacing:1px;
-    }
-
-    /* ── PUB CARDS (Google Scholar, INSPIRE, ORCID) ──────── */
-    .pub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 22px; margin-top: 28px;
-    }
-    .pub-card {
-      border-radius: 14px;
-      padding: 26px 24px 20px;
-      display: flex; flex-direction: column; gap: 10px;
-      text-decoration: none; color: inherit;
-      transition: transform .22s, box-shadow .22s;
-      position: relative; overflow: hidden;
-    }
-    .pub-card::before {
-      content:''; position:absolute; inset:0;
-      opacity:.07; border-radius:14px;
-    }
-    .pub-card:hover { transform:translateY(-5px); }
-    .pub-card-gs  { background:#fff; border:2px solid #4285F4; box-shadow:0 4px 18px rgba(66,133,244,.12); }
-    .pub-card-gs:hover  { box-shadow:0 12px 32px rgba(66,133,244,.22); }
-    .pub-card-ins { background:#fff; border:2px solid #e8521a; box-shadow:0 4px 18px rgba(232,82,26,.10); }
-    .pub-card-ins:hover { box-shadow:0 12px 32px rgba(232,82,26,.20); }
-    .pub-card-orc { background:#fff; border:2px solid #a6ce39; box-shadow:0 4px 18px rgba(166,206,57,.12); }
-    .pub-card-orc:hover { box-shadow:0 12px 32px rgba(166,206,57,.22); }
-
-    .pub-logo {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: flex; align-items:center; justify-content:center;
-      font-size: 22px; font-weight: 900;
-      flex-shrink: 0;
-    }
-    .pub-logo-gs  { background:#4285F4; color:white; font-family:'Libre Baskerville',serif; }
-    .pub-logo-ins { background:#e8521a; color:white; font-family:'Playfair Display',serif; }
-    .pub-logo-orc { background:#a6ce39; color:white; font-family:'Libre Baskerville',serif; }
-
-    .pub-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 19px; font-weight:700; margin-top:4px;
-    }
-    .pub-name-gs  { color:#4285F4; }
-    .pub-name-ins { color:#e8521a; }
-    .pub-name-orc { color:#5a8a00; }
-
-    .pub-desc {
-      font-family: 'Crimson Pro', serif;
-      font-size: 14px; color:#666; line-height:1.5;
-    }
-    .pub-footer {
-      display:flex; align-items:center; justify-content:space-between;
-      margin-top:8px; padding-top:12px; border-top:1px solid #eee;
-    }
-    .pub-tag-gs  { background:#eef3ff; color:#4285F4; font-family:'Libre Baskerville',serif; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-weight:700; }
-    .pub-tag-ins { background:#fff0eb; color:#e8521a; font-family:'Libre Baskerville',serif; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-weight:700; }
-    .pub-tag-orc { background:#f3fadf; color:#5a8a00; font-family:'Libre Baskerville',serif; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-weight:700; }
-    .pub-arrow-gs  { width:30px;height:30px;border-radius:50%;background:#4285F4;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s; }
-    .pub-arrow-ins { width:30px;height:30px;border-radius:50%;background:#e8521a;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s; }
-    .pub-arrow-orc { width:30px;height:30px;border-radius:50%;background:#a6ce39;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s; }
+    /* ── PUB CARDS ────────────────────────────────────── */
+    .pub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px;}
+    .pub-card{border-radius:14px;padding:26px 24px 20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;transition:transform .22s,box-shadow .22s;position:relative;overflow:hidden;}
+    .pub-card:hover{transform:translateY(-5px);}
+    .pub-card-gs {background:#fff;border:2px solid #4285F4;box-shadow:0 4px 18px rgba(66,133,244,.12);}
+    .pub-card-gs:hover{box-shadow:0 12px 32px rgba(66,133,244,.22);}
+    .pub-card-ins{background:#fff;border:2px solid #e8521a;box-shadow:0 4px 18px rgba(232,82,26,.10);}
+    .pub-card-ins:hover{box-shadow:0 12px 32px rgba(232,82,26,.20);}
+    .pub-card-orc{background:#fff;border:2px solid #a6ce39;box-shadow:0 4px 18px rgba(166,206,57,.12);}
+    .pub-card-orc:hover{box-shadow:0 12px 32px rgba(166,206,57,.22);}
+    .pub-logo{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;flex-shrink:0;}
+    .pub-logo-gs {background:#4285F4;color:white;font-family:'Libre Baskerville',serif;}
+    .pub-logo-ins{background:#e8521a;color:white;font-family:'Playfair Display',serif;}
+    .pub-logo-orc{background:#a6ce39;color:white;font-family:'Libre Baskerville',serif;}
+    .pub-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;margin-top:4px;}
+    .pub-name-gs {color:#4285F4;}
+    .pub-name-ins{color:#e8521a;}
+    .pub-name-orc{color:#5a8a00;}
+    .pub-desc{font-family:'Crimson Pro',serif;font-size:14px;color:#666;line-height:1.5;}
+    .pub-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding-top:12px;border-top:1px solid #eee;}
+    .pub-tag-gs {background:#eef3ff;color:#4285F4;font-family:'Libre Baskerville',serif;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;font-weight:700;}
+    .pub-tag-ins{background:#fff0eb;color:#e8521a;font-family:'Libre Baskerville',serif;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;font-weight:700;}
+    .pub-tag-orc{background:#f3fadf;color:#5a8a00;font-family:'Libre Baskerville',serif;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;font-weight:700;}
+    .pub-arrow-gs {width:30px;height:30px;border-radius:50%;background:#4285F4;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s;}
+    .pub-arrow-ins{width:30px;height:30px;border-radius:50%;background:#e8521a;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s;}
+    .pub-arrow-orc{width:30px;height:30px;border-radius:50%;background:#a6ce39;color:white;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,transform .2s;}
     .pub-card:hover .pub-arrow-gs,
     .pub-card:hover .pub-arrow-ins,
-    .pub-card:hover .pub-arrow-orc { transform:translateX(3px); background:#f6d365; color:#0a1024; }
+    .pub-card:hover .pub-arrow-orc{transform:translateX(3px);background:#f6d365;color:#0a1024;}
 
-    /* ── CV CARD ─────────────────────────────────────────── */
-    .cv-card {
-      display: flex; align-items: center; gap: 28px;
-      background: #fff; border-radius: 16px;
-      border-left: 5px solid #1a4f8a;
-      box-shadow: 0 6px 24px rgba(0,0,0,.09);
-      padding: 28px 32px;
-      text-decoration: none; color: inherit;
-      max-width: 520px;
-      transition: transform .22s, box-shadow .22s;
+    /* ── CV CARD ──────────────────────────────────────── */
+    .cv-card{
+      display:flex;align-items:center;gap:28px;
+      background:#fff;border-radius:16px;border-left:5px solid #1a4f8a;
+      box-shadow:0 6px 24px rgba(0,0,0,.09);padding:28px 32px;
+      text-decoration:none;color:inherit;max-width:520px;
+      transition:transform .22s,box-shadow .22s;
     }
-    .cv-card:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(26,79,138,.18); }
-    .cv-icon-box {
-      width: 60px; height: 60px; border-radius: 14px; flex-shrink:0;
-      background: linear-gradient(135deg,#1a4f8a,#0d3566);
-      display:flex; align-items:center; justify-content:center;
-      font-size: 26px; color:white;
-    }
-    .cv-text-box { flex:1; }
-    .cv-title {
-      font-family:'Playfair Display',serif; font-size:21px;
-      font-weight:700; color:#1a2035; margin-bottom:4px;
-    }
-    .cv-sub {
-      font-family:'Crimson Pro',serif; font-size:15px;
-      color:#666; font-style:italic;
-    }
-    .cv-dl-badge {
-      background:#1a4f8a; color:white;
-      font-family:'Libre Baskerville',serif;
-      font-size:12px; letter-spacing:1px; text-transform:uppercase;
-      padding:7px 16px; border-radius:6px; font-weight:700;
-      transition:background .2s;
-    }
-    .cv-card:hover .cv-dl-badge { background:#f6d365; color:#0a1024; }
+    .cv-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(26,79,138,.18);}
+    .cv-icon-box{width:60px;height:60px;border-radius:14px;flex-shrink:0;background:linear-gradient(135deg,#1a4f8a,#0d3566);display:flex;align-items:center;justify-content:center;font-size:26px;color:white;}
+    .cv-text-box{flex:1;}
+    .cv-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:#1a2035;margin-bottom:4px;}
+    .cv-sub{font-family:'Crimson Pro',serif;font-size:15px;color:#666;font-style:italic;}
+    .cv-dl-badge{background:#1a4f8a;color:white;font-family:'Libre Baskerville',serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:7px 16px;border-radius:6px;font-weight:700;transition:background .2s;}
+    .cv-card:hover .cv-dl-badge{background:#f6d365;color:#0a1024;}
 
-    /* ── PROFILE CARDS ───────────────────────────────────── */
-    .prof-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap: 22px; margin-top: 28px;
-    }
-    .prof-card {
-      border-radius: 14px; padding: 24px 22px 18px;
-      display:flex; flex-direction:column; gap:10px;
-      text-decoration:none; color:inherit;
-      transition:transform .22s, box-shadow .22s;
-      background:#fff; border-top:4px solid #1a4f8a;
-      box-shadow:0 5px 18px rgba(0,0,0,.08);
-    }
-    .prof-card:hover { transform:translateY(-5px); box-shadow:0 14px 32px rgba(0,0,0,.14); }
-    .prof-card.tsukuba { border-top-color:#1a4f8a; }
-    .prof-card.riken   { border-top-color:#c0392b; }
-    .prof-card.linkedin{ border-top-color:#0077b5; }
-    .prof-card.github  { border-top-color:#1a2035; }
+    /* ── PROFILE CARDS ────────────────────────────────── */
+    .prof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:28px;}
+    .prof-card{border-radius:14px;padding:24px 22px 18px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;transition:transform .22s,box-shadow .22s;background:#fff;border-top:4px solid #1a4f8a;box-shadow:0 5px 18px rgba(0,0,0,.08);}
+    .prof-card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(0,0,0,.14);}
+    .prof-card.tsukuba{border-top-color:#1a4f8a;}
+    .prof-card.riken  {border-top-color:#c0392b;}
+    .prof-card.linkedin{border-top-color:#0077b5;}
+    .prof-card.github {border-top-color:#1a2035;}
+    .prof-logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:white;flex-shrink:0;}
+    .prof-logo.tsukuba{background:#1a4f8a;font-family:'Playfair Display',serif;}
+    .prof-logo.riken  {background:#c0392b;font-family:'Playfair Display',serif;}
+    .prof-logo.linkedin{background:#0077b5;}
+    .prof-logo.github {background:#1a2035;}
+    .prof-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a2035;line-height:1.25;}
+    .prof-sub{font-family:'Crimson Pro',serif;font-size:13.5px;color:#666;font-style:italic;line-height:1.4;}
+    .prof-footer{display:flex;align-items:center;justify-content:space-between;margin-top:6px;padding-top:10px;border-top:1px solid #eee;}
+    .prof-tag{font-family:'Libre Baskerville',serif;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;padding:3px 9px;border-radius:20px;font-weight:700;}
+    .tsukuba  .prof-tag{background:#eef3ff;color:#1a4f8a;}
+    .riken    .prof-tag{background:#fdf0ee;color:#c0392b;}
+    .linkedin .prof-tag{background:#e8f4fb;color:#0077b5;}
+    .github   .prof-tag{background:#f0f0f2;color:#1a2035;}
+    .prof-arrow{width:28px;height:28px;border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s,transform .2s;}
+    .tsukuba  .prof-arrow{background:#1a4f8a;}
+    .riken    .prof-arrow{background:#c0392b;}
+    .linkedin .prof-arrow{background:#0077b5;}
+    .github   .prof-arrow{background:#1a2035;}
+    .prof-card:hover .prof-arrow{background:#f6d365;color:#0a1024;transform:translateX(3px);}
 
-    .prof-logo {
-      width:44px; height:44px; border-radius:10px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:20px; font-weight:900; color:white; flex-shrink:0;
+    /* ── GALLERY ──────────────────────────────────────── */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;margin-top:24px;
     }
-    .prof-logo.tsukuba { background:#1a4f8a; font-family:'Playfair Display',serif; }
-    .prof-logo.riken   { background:#c0392b; font-family:'Playfair Display',serif; }
-    .prof-logo.linkedin{ background:#0077b5; }
-    .prof-logo.github  { background:#1a2035; }
+    .gallery-item{
+      position:relative;overflow:hidden;border-radius:14px;
+      aspect-ratio:4/3;background:#1a2035;
+      box-shadow:0 6px 22px rgba(0,0,0,.15);
+      cursor:pointer;
+    }
+    .gallery-item img{
+      width:100%;height:100%;object-fit:cover;
+      transition:transform .4s ease,filter .4s;
+      filter:brightness(.85);
+    }
+    .gallery-item:hover img{transform:scale(1.06);filter:brightness(1);}
+    .gallery-caption{
+      position:absolute;bottom:0;left:0;right:0;
+      background:linear-gradient(transparent,rgba(10,16,36,.88));
+      padding:18px 16px 14px;
+      color:white;font-family:'Crimson Pro',serif;font-size:15px;
+      font-style:italic;letter-spacing:.4px;
+      transform:translateY(4px);opacity:0;
+      transition:opacity .3s,transform .3s;
+    }
+    .gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0);}
+    .gallery-placeholder{
+      width:100%;height:100%;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:10px;
+      background:linear-gradient(135deg,#1a2035,#2c3e6b);
+      color:rgba(255,255,255,.5);font-family:'Crimson Pro',serif;
+      font-size:14px;font-style:italic;letter-spacing:.5px;
+    }
+    .gallery-placeholder span{font-size:36px;opacity:.4;}
 
-    .prof-name {
-      font-family:'Playfair Display',serif; font-size:17px;
-      font-weight:700; color:#1a2035; line-height:1.25;
-    }
-    .prof-sub {
-      font-family:'Crimson Pro',serif; font-size:13.5px;
-      color:#666; font-style:italic; line-height:1.4;
-    }
-    .prof-footer {
-      display:flex; align-items:center; justify-content:space-between;
-      margin-top:6px; padding-top:10px; border-top:1px solid #eee;
-    }
-    .prof-tag {
-      font-family:'Libre Baskerville',serif; font-size:10.5px;
-      letter-spacing:1.2px; text-transform:uppercase;
-      padding:3px 9px; border-radius:20px; font-weight:700;
-    }
-    .tsukuba .prof-tag { background:#eef3ff; color:#1a4f8a; }
-    .riken   .prof-tag { background:#fdf0ee; color:#c0392b; }
-    .linkedin .prof-tag{ background:#e8f4fb; color:#0077b5; }
-    .github  .prof-tag { background:#f0f0f2; color:#1a2035; }
+    /* ── CONTACT ──────────────────────────────────────── */
+    .contact-box{background:#1a2035;color:white;padding:34px 38px;border-radius:14px;font-size:17px;line-height:2;}
+    .contact-box a{color:#f6d365;}
+    .contact-box strong{color:#f6d365;font-family:'Libre Baskerville',serif;}
 
-    .prof-arrow {
-      width:28px; height:28px; border-radius:50%; color:white;
-      display:flex; align-items:center; justify-content:center;
-      font-size:14px; transition:background .2s, transform .2s;
-    }
-    .tsukuba .prof-arrow  { background:#1a4f8a; }
-    .riken   .prof-arrow  { background:#c0392b; }
-    .linkedin .prof-arrow { background:#0077b5; }
-    .github  .prof-arrow  { background:#1a2035; }
-    .prof-card:hover .prof-arrow { background:#f6d365; color:#0a1024; transform:translateX(3px); }
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer{background:#0d1322;color:rgba(255,255,255,.55);text-align:center;padding:26px;font-size:14px;letter-spacing:1px;}
 
-    /* ── RESPONSIVE ──────────────────────────────────────── */
+    /* ── RESPONSIVE ───────────────────────────────────── */
     @media(max-width:900px){
-      nav { flex-direction:column; gap:10px; text-align:center; }
-      nav .links a { margin:0 10px; }
-      .about-box { flex-direction:column; }
-      .hero h1 { font-size:52px; }
-      .hero-title { font-size:17px; }
-      .hero-affiliation { font-size:17px; }
-      header#home { padding:0 8%; }
-      section { padding:50px 8%; }
+      nav{flex-direction:column;gap:10px;padding:12px 20px;}
+      nav .links a{margin:0 4px;font-size:10.5px;padding:5px 9px;}
+      .about-box{flex-direction:column;}
+      .hero h1{font-size:52px;}
+      .hero-title{font-size:16px;}
+      .hero-affiliation{font-size:19px;}
+      #hero-bar{padding:0 8%;min-height:70vh;}
+      .page-section{padding:50px 8%;}
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ───────────────────────────────────────────────── -->
+<!-- ── NAV ──────────────────────────────────────────────── -->
 <nav>
-  <span class="brand">ANIL KUMAR</span>
+  <span class="brand" onclick="showSection('home')">ANIL KUMAR</span>
   <div class="links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#cv">CV</a>
-    <a href="#profiles">Profiles</a>
-    <a href="#links">Important Links</a>
-    <a href="#contact">Contact</a>
+    <a href="#" onclick="showSection('home')"         id="nav-home">Home</a>
+    <a href="#" onclick="showSection('about')"        id="nav-about">About</a>
+    <a href="#" onclick="showSection('research')"     id="nav-research">Research</a>
+    <a href="#" onclick="showSection('publications')" id="nav-publications">Publications</a>
+    <a href="#" onclick="showSection('cv')"           id="nav-cv">CV</a>
+    <a href="#" onclick="showSection('profiles')"     id="nav-profiles">Profiles</a>
+    <a href="#" onclick="showSection('links')"        id="nav-links">Important Links</a>
+    <a href="#" onclick="showSection('gallery')"      id="nav-gallery">Gallery</a>
+    <a href="#" onclick="showSection('contact')"      id="nav-contact">Contact</a>
   </div>
 </nav>
 
-<!-- ── HERO ──────────────────────────────────────────────── -->
-<header id="home">
+<!-- ── HERO — always visible ────────────────────────────── -->
+<div id="hero-bar">
   <div class="hero">
     <h1>Anil Kumar</h1>
     <div class="hero-divider"></div>
     <div class="hero-title">Theoretical Nuclear Physicist</div>
     <div class="hero-affiliation">University of Tsukuba, Japan &nbsp;|&nbsp; RIKEN, Japan</div>
   </div>
-</header>
+</div>
 
-<!-- ── ABOUT ─────────────────────────────────────────────── -->
-<section id="about">
-  <div class="about-box">
-    <img src="profile.png" alt="Anil Kumar">
-    <div class="about-text">
-      <h2>Brief Bio-Data</h2>
-      <p>
-        I am a theoretical nuclear physicist working on nuclear structure, weak interaction
+<!-- ── CONTENT PANEL ────────────────────────────────────── -->
+<div id="content-panel">
+
+  <!-- ABOUT -->
+  <section class="page-section" id="sec-about">
+    <div class="about-box">
+      <img src="profile.png" alt="Anil Kumar">
+      <div class="about-text">
+        <h2>Brief Bio-Data</h2>
+        <p>I am a theoretical nuclear physicist working on nuclear structure, weak interaction
         processes, and large-scale nuclear shell-model calculations. My research focuses on
         beta decay, nuclear many-body methods, Monte Carlo Shell Model (MCSM),
-        No-Core Monte Carlo Shell Model (NC-MCSM), and ab initio approaches such as the Valence-Space In-Medium Similarity
-        Renormalization Group (VS-IMSRG).
+        No-Core Monte Carlo Shell Model (NC-MCSM), Quasiparticle-Vacuum Shell Model (QVSM),
+        and ab initio approaches such as the Valence-Space In-Medium Similarity
+        Renormalization Group (VS-IMSRG).</p>
+        <p style="margin-top:16px;">Currently, I am a Postdoctoral Researcher at the Center for Computational Sciences,
+        University of Tsukuba, Japan, and a Visiting Scientist at TRIP Headquarters,
+        RIKEN, Japan. I am also exploring Artificial Intelligence and Quantum Computing
+        applications in nuclear many-body physics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="page-section dark-base" id="sec-research">
+    <h2>Research Interests</h2>
+    <div class="grid">
+      <div class="card">Nuclear Structure Theory and Shell Evolution</div>
+      <div class="card">Large-Scale Nuclear Shell-Model Calculations</div>
+      <div class="card">Monte Carlo Shell Model and No-Core MCSM</div>
+      <div class="card">Quasiparticle-Vacuum Shell Model and Nuclear Deformation</div>
+      <div class="card">Beta Decay and Nuclear Weak Processes</div>
+      <div class="card">VS-IMSRG and Ab Initio Nuclear Many-Body Methods</div>
+      <div class="card">Artificial Intelligence Applications in Nuclear Physics</div>
+      <div class="card">Quantum Computing for Nuclear Many-Body Systems</div>
+      <div class="card">High-Performance Computing for Nuclear Structure Calculations</div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="page-section" id="sec-publications">
+    <h2>Publications &amp; Research Profiles</h2>
+    <p style="font-size:17px;margin-bottom:6px;">My publications, citation records, and research profiles:</p>
+    <div class="pub-grid">
+      <a class="pub-card pub-card-gs" href="https://scholar.google.com/citations?user=5_NC7zQAAAAJ&hl=en" target="_blank">
+        <div class="pub-logo pub-logo-gs">G</div>
+        <div class="pub-name pub-name-gs">Google Scholar</div>
+        <div class="pub-desc">Publication list, citations,<br>and h-index metrics</div>
+        <div class="pub-footer"><span class="pub-tag-gs">Citations</span><span class="pub-arrow-gs">&#8594;</span></div>
+      </a>
+      <a class="pub-card pub-card-ins" href="https://inspirehep.net/authors/2641430" target="_blank">
+        <div class="pub-logo pub-logo-ins">iN</div>
+        <div class="pub-name pub-name-ins">INSPIRE-HEP</div>
+        <div class="pub-desc">High-energy &amp; nuclear physics<br>literature database</div>
+        <div class="pub-footer"><span class="pub-tag-ins">HEP Database</span><span class="pub-arrow-ins">&#8594;</span></div>
+      </a>
+      <a class="pub-card pub-card-orc" href="https://orcid.org/0000-0003-3299-0435" target="_blank">
+        <div class="pub-logo pub-logo-orc">iD</div>
+        <div class="pub-name pub-name-orc">ORCID</div>
+        <div class="pub-desc">Unique researcher identifier<br>0000-0003-3299-0435</div>
+        <div class="pub-footer"><span class="pub-tag-orc">Researcher ID</span><span class="pub-arrow-orc">&#8594;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="page-section dark-base" id="sec-cv">
+    <h2>Curriculum Vitae</h2>
+    <p style="font-size:17px;margin-bottom:22px;">A complete copy of my CV can be downloaded below.</p>
+    <a class="cv-card" href="Anil_Kumar_CV.pdf" target="_blank">
+      <div class="cv-icon-box">&#128196;</div>
+      <div class="cv-text-box">
+        <div class="cv-title">Curriculum Vitae</div>
+        <div class="cv-sub">Dr. Anil Kumar &nbsp;·&nbsp; Theoretical Nuclear Physics</div>
+      </div>
+      <span class="cv-dl-badge">&#8595; PDF</span>
+    </a>
+  </section>
+
+  <!-- PROFILES -->
+  <section class="page-section" id="sec-profiles">
+    <h2>Professional Profiles</h2>
+    <p style="font-size:17px;margin-bottom:6px;">My institutional and professional profiles:</p>
+    <div class="prof-grid">
+      <a class="prof-card tsukuba" href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">
+        <div class="prof-logo tsukuba">T</div>
+        <div class="prof-name">University of Tsukuba</div>
+        <div class="prof-sub">Center for Computational Sciences, Japan</div>
+        <div class="prof-footer"><span class="prof-tag">Postdoctoral</span><span class="prof-arrow">&#8594;</span></div>
+      </a>
+      <a class="prof-card riken" href="https://rq.riken.jp/en/members/" target="_blank">
+        <div class="prof-logo riken">R</div>
+        <div class="prof-name">RIKEN TRIP</div>
+        <div class="prof-sub">Visiting Scientist, Japan</div>
+        <div class="prof-footer"><span class="prof-tag">Visiting Scientist</span><span class="prof-arrow">&#8594;</span></div>
+      </a>
+      <a class="prof-card linkedin" href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">
+        <div class="prof-logo linkedin">in</div>
+        <div class="prof-name">LinkedIn</div>
+        <div class="prof-sub">Professional network &amp; career profile</div>
+        <div class="prof-footer"><span class="prof-tag">Network</span><span class="prof-arrow">&#8594;</span></div>
+      </a>
+      <a class="prof-card github" href="https://github.com/khichar1993" target="_blank">
+        <div class="prof-logo github">&#9670;</div>
+        <div class="prof-name">GitHub</div>
+        <div class="prof-sub">Code repositories &amp; open-source projects</div>
+        <div class="prof-footer"><span class="prof-tag">Code</span><span class="prof-arrow">&#8594;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- IMPORTANT LINKS -->
+  <section class="page-section dark-base" id="sec-links">
+    <h2>Important Links</h2>
+    <div class="code-grid">
+      <a class="code-card" href="https://sites.google.com/alumni.tsukuba.ac.jp/kshell-nuclear/" target="_blank">
+        <div class="code-card-header"><div class="code-icon">&#9671;</div><div class="code-name">KSHELL</div></div>
+        <div class="code-dev">Developed by <span>N. Shimizu</span></div>
+        <div class="code-footer"><span class="code-tag">Shell Model</span><span class="code-arrow">&#8594;</span></div>
+      </a>
+      <a class="code-card" href="https://github.com/ragnarstroberg/imsrg" target="_blank">
+        <div class="code-card-header"><div class="code-icon">&#9651;</div><div class="code-name">VS-IMSRG</div></div>
+        <div class="code-dev">Developed by <span>R. Stroberg</span></div>
+        <div class="code-footer"><span class="code-tag">Ab Initio</span><span class="code-arrow">&#8594;</span></div>
+      </a>
+      <a class="code-card" href="https://github.com/Takayuki-Miyagi/NuHamil-public" target="_blank">
+        <div class="code-card-header"><div class="code-icon">&#9670;</div><div class="code-name">NuHamil</div></div>
+        <div class="code-dev">Developed by <span>T. Miyagi</span></div>
+        <div class="code-footer"><span class="code-tag">Interaction</span><span class="code-arrow">&#8594;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="page-section" id="sec-gallery">
+    <h2>Gallery</h2>
+    <p style="font-size:17px;margin-bottom:6px;color:#555;">Photos from conferences, research visits, and collaborations.</p>
+    <div class="gallery-grid">
+      <!-- Replace src with your actual image paths -->
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>&#128247;</span>Conference Photo</div>
+        <div class="gallery-caption">International Conference on Nuclear Physics</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>&#127981;</span>Research Visit</div>
+        <div class="gallery-caption">RIKEN, Japan — Research Visit</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>&#128104;&#8205;&#128187;</span>Lab Work</div>
+        <div class="gallery-caption">University of Tsukuba — CCS</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>&#127891;</span>PhD Defence</div>
+        <div class="gallery-caption">PhD Defence — IIT Roorkee</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>&#127757;</span>Collaboration</div>
+        <div class="gallery-caption">International Collaboration Meeting</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder"><span>&#128218;</span>Workshop</div>
+        <div class="gallery-caption">Nuclear Theory Workshop</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page-section dark-base" id="sec-contact">
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <p><strong>Email</strong><br>
+        akumar5@ph.iitr.ac.in<br>
+        anilkhichar102@gmail.com<br>
+        anil@nucl.ph.tsukuba.ac.jp
       </p>
-      <p style="margin-top:16px;">
-        More recently, I have been exploring Artificial Intelligence (AI) and Quantum Computing
-        applications in nuclear many-body physics, with the goal of developing next-generation
-        computational approaches for nuclear structure calculations.
+      <p style="margin-top:20px;"><strong>Current Affiliation</strong><br>
+        Center for Computational Sciences, University of Tsukuba, Japan
+      </p>
+      <p style="margin-top:20px;"><strong>Additional Affiliation</strong><br>
+        Visiting Scientist, TRIP Headquarters, RIKEN, Japan
       </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── RESEARCH ──────────────────────────────────────────── -->
-<section id="research" class="dark">
-  <h2>Research Interests</h2>
-  <div class="grid">
-    <div class="card">Nuclear Structure Theory and Shell Evolution</div>
-    <div class="card">Large-Scale Nuclear Shell-Model Calculations</div>
-    <div class="card">Monte Carlo Shell Model and No-Core MCSM</div>
-    <div class="card">Beta Decay and Nuclear Weak Processes</div>
-    <div class="card">VS-IMSRG and Ab Initio Nuclear Many-Body Methods</div>
-    <div class="card">Artificial Intelligence Applications in Nuclear Physics</div>
-    <div class="card">Quantum Computing for Nuclear Many-Body Systems</div>
-    <div class="card">High-Performance Computing for Nuclear Structure Calculations</div>
-  </div>
-</section>
-
-<!-- ── PUBLICATIONS ──────────────────────────────────────── -->
-<section id="publications">
-  <h2>Publications &amp; Research Profiles</h2>
-  <p style="font-size:17px;margin-bottom:6px;">My publications, citation records, and research profiles:</p>
-  <div class="pub-grid">
-
-    <!-- Google Scholar -->
-    <a class="pub-card pub-card-gs" href="https://scholar.google.com/citations?user=5_NC7zQAAAAJ&hl=en" target="_blank">
-      <div class="pub-logo pub-logo-gs">G</div>
-      <div class="pub-name pub-name-gs">Google Scholar</div>
-      <div class="pub-desc">Publication list, citations,<br>and h-index metrics</div>
-      <div class="pub-footer">
-        <span class="pub-tag-gs">Citations</span>
-        <span class="pub-arrow-gs">&#8594;</span>
-      </div>
-    </a>
-
-    <!-- INSPIRE-HEP -->
-    <a class="pub-card pub-card-ins" href="https://inspirehep.net/authors/2641430" target="_blank">
-      <div class="pub-logo pub-logo-ins">iN</div>
-      <div class="pub-name pub-name-ins">INSPIRE-HEP</div>
-      <div class="pub-desc">High-energy &amp; nuclear physics<br>literature database</div>
-      <div class="pub-footer">
-        <span class="pub-tag-ins">HEP Database</span>
-        <span class="pub-arrow-ins">&#8594;</span>
-      </div>
-    </a>
-
-    <!-- ORCID -->
-    <a class="pub-card pub-card-orc" href="https://orcid.org/0000-0003-3299-0435" target="_blank">
-      <div class="pub-logo pub-logo-orc">iD</div>
-      <div class="pub-name pub-name-orc">ORCID</div>
-      <div class="pub-desc">Unique researcher identifier<br>0000-0003-3299-0435</div>
-      <div class="pub-footer">
-        <span class="pub-tag-orc">Researcher ID</span>
-        <span class="pub-arrow-orc">&#8594;</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ── CV ────────────────────────────────────────────────── -->
-<section id="cv" class="dark">
-  <h2>Curriculum Vitae</h2>
-  <p style="font-size:17px;margin-bottom:22px;">A complete copy of my CV can be downloaded below.</p>
-  <a class="cv-card" href="Anil_Kumar_CV.pdf" target="_blank">
-    <div class="cv-icon-box">&#128196;</div>
-    <div class="cv-text-box">
-      <div class="cv-title">Curriculum Vitae</div>
-      <div class="cv-sub">Dr. Anil Kumar &nbsp;·&nbsp; Theoretical Nuclear Physics</div>
-    </div>
-    <span class="cv-dl-badge">&#8595; PDF</span>
-  </a>
-</section>
-
-<!-- ── PROFILES ──────────────────────────────────────────── -->
-<section id="profiles">
-  <h2>Professional Profiles</h2>
-  <p style="font-size:17px;margin-bottom:6px;">My institutional and professional profiles:</p>
-  <div class="prof-grid">
-
-    <!-- Tsukuba -->
-    <a class="prof-card tsukuba" href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">
-      <div class="prof-logo tsukuba">T</div>
-      <div class="prof-name">University of Tsukuba</div>
-      <div class="prof-sub">Center for Computational Sciences, Japan</div>
-      <div class="prof-footer">
-        <span class="prof-tag">Postdoctoral</span>
-        <span class="prof-arrow">&#8594;</span>
-      </div>
-    </a>
-
-    <!-- RIKEN -->
-    <a class="prof-card riken" href="https://rq.riken.jp/en/members/" target="_blank">
-      <div class="prof-logo riken">R</div>
-      <div class="prof-name">RIKEN TRIP</div>
-      <div class="prof-sub">Visiting Scientist, Japan</div>
-      <div class="prof-footer">
-        <span class="prof-tag">Visiting Scientist</span>
-        <span class="prof-arrow">&#8594;</span>
-      </div>
-    </a>
-
-    <!-- LinkedIn -->
-    <a class="prof-card linkedin" href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">
-      <div class="prof-logo linkedin">in</div>
-      <div class="prof-name">LinkedIn</div>
-      <div class="prof-sub">Professional network &amp; career profile</div>
-      <div class="prof-footer">
-        <span class="prof-tag">Network</span>
-        <span class="prof-arrow">&#8594;</span>
-      </div>
-    </a>
-
-    <!-- GitHub -->
-    <a class="prof-card github" href="https://github.com/khichar1993" target="_blank">
-      <div class="prof-logo github">&#9670;</div>
-      <div class="prof-name">GitHub</div>
-      <div class="prof-sub">Code repositories &amp; open-source projects</div>
-      <div class="prof-footer">
-        <span class="prof-tag">Code</span>
-        <span class="prof-arrow">&#8594;</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ── IMPORTANT LINKS ───────────────────────────────────── -->
-<section id="links" class="dark">
-  <h2>Important Links</h2>
-  <div class="code-grid">
-
-    <!-- KSHELL -->
-    <a class="code-card" href="https://sites.google.com/alumni.tsukuba.ac.jp/kshell-nuclear/" target="_blank">
-      <div class="code-card-header">
-        <div class="code-icon">&#9671;</div>
-        <div class="code-name">KSHELL</div>
-      </div>
-      <div class="code-dev">Developed by <span>N. Shimizu</span></div>
-      <div class="code-footer">
-        <span class="code-tag">Shell Model</span>
-        <span class="code-arrow">&#8594;</span>
-      </div>
-    </a>
-
-    <!-- VS-IMSRG -->
-    <a class="code-card" href="https://github.com/ragnarstroberg/imsrg" target="_blank">
-      <div class="code-card-header">
-        <div class="code-icon">&#9651;</div>
-        <div class="code-name">VS-IMSRG</div>
-      </div>
-      <div class="code-dev">Developed by <span>R. Stroberg</span></div>
-      <div class="code-footer">
-        <span class="code-tag">Ab Initio</span>
-        <span class="code-arrow">&#8594;</span>
-      </div>
-    </a>
-
-    <!-- NuHamil -->
-    <a class="code-card" href="https://github.com/Takayuki-Miyagi/NuHamil-public" target="_blank">
-      <div class="code-card-header">
-        <div class="code-icon">&#9670;</div>
-        <div class="code-name">NuHamil</div>
-      </div>
-      <div class="code-dev">Developed by <span>T. Miyagi</span></div>
-      <div class="code-footer">
-        <span class="code-tag">Interaction</span>
-        <span class="code-arrow">&#8594;</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ── CONTACT ───────────────────────────────────────────── -->
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="contact-box">
-    <p><strong>Email</strong><br>
-      akumar5@ph.iitr.ac.in<br>
-      anilkhichar102@gmail.com<br>
-      anil@nucl.ph.tsukuba.ac.jp
-    </p>
-    <p style="margin-top:20px;"><strong>Current Affiliation</strong><br>
-      Center for Computational Sciences, University of Tsukuba, Japan
-    </p>
-    <p style="margin-top:20px;"><strong>Additional Affiliation</strong><br>
-      Visiting Scientist, TRIP Headquarters, RIKEN, Japan
-    </p>
-  </div>
-</section>
+</div><!-- end content-panel -->
 
 <footer>© 2026 Anil Kumar &nbsp;·&nbsp; Theoretical Nuclear Physics</footer>
 
+<script>
+  const sections = ['about','research','publications','cv','profiles','links','gallery','contact'];
+
+  function showSection(id) {
+    // Hide all sections, clear all active nav
+    sections.forEach(s => {
+      document.getElementById('sec-' + s).classList.remove('active');
+    });
+    document.querySelectorAll('nav .links a').forEach(a => a.classList.remove('active'));
+
+    // Always show content panel
+    document.getElementById('content-panel').style.display = 'block';
+
+    if (id === 'home') {
+      // Home → show About below the hero
+      document.getElementById('sec-about').classList.add('active');
+      document.getElementById('nav-home').classList.add('active');
+    } else {
+      document.getElementById('sec-' + id).classList.add('active');
+      document.getElementById('nav-' + id).classList.add('active');
+    }
+
+    // Scroll smoothly to content panel
+    setTimeout(() => {
+      document.getElementById('content-panel').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 50);
+
+    return false;
+  }
+
+  // Start: hero + About visible
+  showSection('home');
+</script>
 </body>
 </html>
