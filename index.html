@@ -2,97 +2,306 @@
 <html>
 <head>
   <title>Anil Kumar | Theoretical Nuclear Physicist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
-    body { margin:0; font-family: Georgia, serif; color:#222; background:#fff; line-height:1.8; }
+    * { box-sizing: border-box; scroll-behavior: smooth; margin:0; padding:0; }
+    body { font-family: 'Crimson Pro', Georgia, serif; color:#222; background:#fff; line-height:1.85; }
 
+    /* ── NAV ─────────────────────────────────────────────── */
     nav {
-      position: fixed; top:0; width:100%; z-index:10;
-      background:linear-gradient(
-      90deg,
-      #1e3c72,
-      #2a5298
-  );
-      padding:20px 40px; text-align:right;
-      box-shadow:0 3px 12px rgba(0,0,0,0.25);
+      position: fixed; top:0; width:100%; z-index:100;
+      background: rgba(10,16,36,.96);
+      padding: 16px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(246,211,101,.18);
+      backdrop-filter: blur(6px);
     }
-    nav .brand { float:left; color:white; font-weight:bold; letter-spacing:2px; }
-    nav a { color:white; margin-left:22px; text-decoration:none; font-size:15px; }
-    nav a:hover { color:#f6d365; }
-
-    header {
-      height:72vh;
-      background:linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)), url("background.png");
-      background-size:cover; background-position:center;
-      display:flex; align-items:center; padding:0 12%; color:white;
+    nav .brand {
+      color: #f6d365;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: 900;
     }
-    .hero h1 { font-size:58px; margin-bottom:10px; }
-    .hero p { font-size:20px; letter-spacing:2px; color:#f6d365; font-weight:bold; }
+    nav .links a {
+      color: rgba(255,255,255,.88);
+      margin-left: 26px;
+      text-decoration: none;
+      font-size: 15px;
+      font-family: 'Libre Baskerville', serif;
+      letter-spacing: .5px;
+      transition: color .25s;
+      position: relative;
+    }
+    nav .links a::after {
+      content:''; position:absolute; bottom:-3px; left:0; right:0;
+      height:1.5px; background:#f6d365;
+      transform:scaleX(0); transition:transform .25s;
+    }
+    nav .links a:hover { color:#f6d365; }
+    nav .links a:hover::after { transform:scaleX(1); }
 
-    section { padding:60px 12%; }
-    h2 { font-size:32px; color:#1f2937; border-bottom:3px solid #b8895b; display:inline-block; }
+    /* ── HERO ────────────────────────────────────────────── */
+    header#home {
+      min-height: 88vh;
+      background:
+        linear-gradient(155deg, rgba(5,10,28,.82) 40%, rgba(30,12,8,.72) 100%),
+        url("background.png") center/cover no-repeat;
+      display: flex; align-items: center;
+      padding: 0 12%;
+      position: relative;
+      overflow: hidden;
+    }
 
-    .about-box { display:flex; gap:45px; align-items:center; }
-    .about-box img { width:260px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.25); }
-    .about-text { flex:1; text-align:justify; }
+    /* subtle grain overlay */
+    header#home::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      pointer-events:none; opacity:.35;
+    }
 
+    /* gold accent line */
+    header#home::after {
+      content:'';
+      position:absolute; left:12%; top:0; bottom:0;
+      width:2px;
+      background: linear-gradient(to bottom, transparent 10%, #f6d365 40%, #f6d365 60%, transparent 90%);
+      opacity:.55;
+    }
+
+    .hero {
+      position:relative; z-index:1;
+      padding-left: 28px;
+    }
+
+    /* ── KEY CHANGE: hero text ───────────────────── */
+    .hero-eyebrow {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 13px;
+      letter-spacing: 5px;
+      color: #f6d365;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: .9;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 78px;           /* ← bigger name */
+      font-weight: 900;
+      line-height: 1.05;
+      color: #ffffff;
+      margin-bottom: 22px;
+      text-shadow: 0 4px 32px rgba(0,0,0,.45);
+      letter-spacing: -1px;
+    }
+
+    .hero-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 22px;           /* ← bigger role text */
+      letter-spacing: 4px;
+      color: #f6d365;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.4);
+    }
+
+    .hero-affiliation {
+      font-family: 'Crimson Pro', serif;
+      font-size: 22px;           /* ← bigger affiliation */
+      color: rgba(255,255,255,.82);
+      font-style: italic;
+      letter-spacing: 1px;
+      margin-bottom: 36px;
+    }
+
+    .hero-divider {
+      width: 60px; height: 2px;
+      background: #f6d365;
+      margin-bottom: 36px;
+      opacity: .8;
+    }
+
+    /* ── nav quick-links shown in hero ──────────────────────
+       These are the "Home / Research / CV" labels you asked
+       to have styled with a coloured background               */
+    .hero-nav-pills {
+      display: flex; flex-wrap: wrap; gap: 12px;
+    }
+    .hero-nav-pills a {
+      display: inline-block;
+      padding: 9px 22px;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: background .25s, color .25s, transform .2s;
+    }
+    /* Gold pill — for primary destinations */
+    .hero-nav-pills a.pill-gold {
+      background: #f6d365;
+      color: #0a1024;
+    }
+    .hero-nav-pills a.pill-gold:hover {
+      background: #fbe38a;
+      transform: translateY(-2px);
+    }
+    /* Outline pill — for secondary destinations */
+    .hero-nav-pills a.pill-outline {
+      background: transparent;
+      color: #f6d365;
+      border: 1.5px solid rgba(246,211,101,.6);
+    }
+    .hero-nav-pills a.pill-outline:hover {
+      background: rgba(246,211,101,.12);
+      border-color: #f6d365;
+      transform: translateY(-2px);
+    }
+    /* Ghost white pill */
+    .hero-nav-pills a.pill-white {
+      background: rgba(255,255,255,.10);
+      color: #ffffff;
+      border: 1.5px solid rgba(255,255,255,.25);
+    }
+    .hero-nav-pills a.pill-white:hover {
+      background: rgba(255,255,255,.20);
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTIONS ────────────────────────────────────────── */
+    section { padding: 72px 12%; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: #1a2035;
+      border-bottom: 3px solid #b8895b;
+      display: inline-block;
+      padding-bottom: 4px;
+      margin-bottom: 32px;
+    }
+
+    /* ── ABOUT ───────────────────────────────────────────── */
+    .about-box { display:flex; gap:50px; align-items:center; }
+    .about-box img {
+      width: 270px; border-radius: 14px;
+      box-shadow: 0 12px 36px rgba(0,0,0,.22);
+    }
+    .about-text { flex:1; text-align:justify; font-size:18px; }
+
+    /* ── CARDS / GRID ────────────────────────────────────── */
     .grid {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:22px; margin-top:25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 22px; margin-top:20px;
     }
     .card {
-      background:#f6f1ea; padding:22px; border-radius:12px;
-      border-left:5px solid #b8895b; box-shadow:0 5px 15px rgba(0,0,0,.08);
-      font-weight:bold;
+      background: #fff;
+      padding: 22px 20px 22px 22px;
+      border-radius: 12px;
+      border-left: 5px solid #b8895b;
+      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+      font-weight: 700;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 15px;
+      color: #1a2035;
+      transition: transform .2s, box-shadow .2s;
     }
+    .card:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,.13); }
+    .card a { color:#1a2035; text-decoration:none; }
+    .card a:hover { color:#b8895b; }
 
+    /* ── BUTTONS ─────────────────────────────────────────── */
     .btn {
-      display:inline-block; margin:10px 10px 10px 0; padding:12px 22px;
-      background:#1f2937; color:white; text-decoration:none; border-radius:8px; font-weight:bold;
+      display: inline-block; margin: 10px 10px 10px 0;
+      padding: 12px 24px;
+      background: #1a2035; color: white;
+      text-decoration: none; border-radius: 8px;
+      font-weight: 700; font-family:'Libre Baskerville',serif;
+      font-size: 14px; letter-spacing:.5px;
+      transition: background .25s, transform .2s;
     }
-    .btn:hover { background:#b8895b; }
+    .btn:hover { background:#b8895b; transform:translateY(-2px); }
 
-    .dark { background:#f6f1ea; }
-    .contact-box { background:#1f2937; color:white; padding:28px; border-radius:12px; }
+    /* ── ALTERNATING BG ──────────────────────────────────── */
+    .dark { background: #f6f1ea; }
+
+    /* ── CONTACT ─────────────────────────────────────────── */
+    .contact-box {
+      background: #1a2035; color:white;
+      padding: 34px 38px; border-radius:14px;
+      font-size: 17px; line-height:2;
+    }
     .contact-box a { color:#f6d365; }
+    .contact-box strong { color:#f6d365; font-family:'Libre Baskerville',serif; }
 
-    footer { background:#111827; color:white; text-align:center; padding:22px; }
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: #0d1322; color:rgba(255,255,255,.55);
+      text-align:center; padding:26px;
+      font-size:14px; letter-spacing:1px;
+    }
 
-    @media(max-width:800px){
-      nav { text-align:center; }
-      nav .brand { float:none; display:block; margin-bottom:8px; }
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media(max-width:900px){
+      nav { flex-direction:column; gap:10px; text-align:center; }
+      nav .links a { margin:0 10px; }
       .about-box { flex-direction:column; }
-      .hero h1 { font-size:42px; }
+      .hero h1 { font-size:52px; }
+      .hero-title { font-size:17px; }
+      .hero-affiliation { font-size:17px; }
+      header#home { padding:0 8%; }
+      section { padding:50px 8%; }
     }
   </style>
 </head>
-
 <body>
 
+<!-- ── NAV ───────────────────────────────────────────────── -->
 <nav>
   <span class="brand">ANIL KUMAR</span>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#research">Research</a>
-  <a href="#publications">Publications</a>
-  <a href="#cv">CV</a>
-  <a href="#profiles">Profiles</a>
-  <a href="#links">Important Links</a>
-  <a href="#contact">Contact</a>
+  <div class="links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#cv">CV</a>
+    <a href="#profiles">Profiles</a>
+    <a href="#links">Important Links</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
+<!-- ── HERO ──────────────────────────────────────────────── -->
 <header id="home">
   <div class="hero">
+    <div class="hero-eyebrow">Theoretical Nuclear Physics · Ab Initio Methods</div>
     <h1>Anil Kumar</h1>
-    <p>THEORETICAL NUCLEAR PHYSICIST</p>
-    <p>University of Tsukuba, Japan | RIKEN, Japan</p>
+    <div class="hero-divider"></div>
+    <div class="hero-title">Theoretical Nuclear Physicist</div>
+    <div class="hero-affiliation">University of Tsukuba, Japan &nbsp;|&nbsp; RIKEN, Japan</div>
+
+    <!-- coloured nav pills inside hero — the change you asked for -->
+    <div class="hero-nav-pills">
+      <a href="#home"         class="pill-gold">Home</a>
+      <a href="#about"        class="pill-outline">About</a>
+      <a href="#research"     class="pill-outline">Research</a>
+      <a href="#publications" class="pill-outline">Publications</a>
+      <a href="#cv"           class="pill-gold">CV</a>
+      <a href="#profiles"     class="pill-white">Profiles</a>
+      <a href="#contact"      class="pill-white">Contact</a>
+    </div>
   </div>
 </header>
 
+<!-- ── ABOUT ─────────────────────────────────────────────── -->
 <section id="about">
   <div class="about-box">
     <img src="profile.png" alt="Anil Kumar">
-
     <div class="about-text">
       <h2>Brief Bio-Data</h2>
       <p>
@@ -103,7 +312,7 @@
         and ab initio approaches such as the Valence-Space In-Medium Similarity
         Renormalization Group (VS-IMSRG).
       </p>
-      <p>
+      <p style="margin-top:16px;">
         Currently, I am a Postdoctoral Researcher at the Center for Computational Sciences,
         University of Tsukuba, Japan, and a Visiting Scientist at TRIP Headquarters,
         RIKEN, Japan. I am also exploring Artificial Intelligence and Quantum Computing
@@ -113,6 +322,7 @@
   </div>
 </section>
 
+<!-- ── RESEARCH ──────────────────────────────────────────── -->
 <section id="research" class="dark">
   <h2>Research Interests</h2>
   <div class="grid">
@@ -128,58 +338,61 @@
   </div>
 </section>
 
+<!-- ── PUBLICATIONS ──────────────────────────────────────── -->
 <section id="publications">
-  <h2>Publications & Research Profiles</h2>
-  <p>My publications, citation records, and research profiles can be accessed through:</p>
+  <h2>Publications &amp; Research Profiles</h2>
+  <p style="font-size:17px;margin-bottom:18px;">My publications, citation records, and research profiles can be accessed through:</p>
   <a class="btn" href="https://scholar.google.com/citations?user=5_NC7zQAAAAJ&hl=en" target="_blank">Google Scholar</a>
   <a class="btn" href="https://inspirehep.net/authors/2641430" target="_blank">INSPIRE-HEP</a>
   <a class="btn" href="https://orcid.org/0000-0003-3299-0435" target="_blank">ORCID</a>
 </section>
 
+<!-- ── CV ────────────────────────────────────────────────── -->
 <section id="cv" class="dark">
   <h2>Curriculum Vitae</h2>
-  <p>A complete copy of my CV can be downloaded below.</p>
-  <a class="btn" href="Anil_Kumar_CV.pdf" target="_blank">Download CV</a>
+  <p style="font-size:17px;margin-bottom:18px;">A complete copy of my CV can be downloaded below.</p>
+  <a class="btn" href="Anil_Kumar_CV.pdf" target="_blank">Download CV (PDF)</a>
 </section>
 
+<!-- ── PROFILES ──────────────────────────────────────────── -->
 <section id="profiles">
   <h2>Professional Profiles</h2>
-  <p>My institutional and professional profiles are available here:</p>
+  <p style="font-size:17px;margin-bottom:18px;">My institutional and professional profiles are available here:</p>
   <a class="btn" href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">University of Tsukuba</a>
   <a class="btn" href="https://rq.riken.jp/en/members/" target="_blank">RIKEN TRIP</a>
   <a class="btn" href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">LinkedIn</a>
   <a class="btn" href="https://github.com/khichar1993" target="_blank">GitHub</a>
 </section>
 
+<!-- ── IMPORTANT LINKS ───────────────────────────────────── -->
 <section id="links" class="dark">
   <h2>Important Links</h2>
-  <div class="grid">    
+  <div class="grid">
     <div class="card"><a href="https://sites.google.com/alumni.tsukuba.ac.jp/kshell-nuclear/" target="_blank">KSHELL Code</a></div>
     <div class="card"><a href="https://github.com/ragnarstroberg/imsrg" target="_blank">VS-IMSRG Code</a></div>
     <div class="card"><a href="https://github.com/Takayuki-Miyagi/NuHamil-public" target="_blank">NuHamil Code</a></div>
   </div>
 </section>
 
+<!-- ── CONTACT ───────────────────────────────────────────── -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="contact-box">
-    <p><strong>Email:</strong><br>
+    <p><strong>Email</strong><br>
       akumar5@ph.iitr.ac.in<br>
       anilkhichar102@gmail.com<br>
       anil@nucl.ph.tsukuba.ac.jp
     </p>
-    <p><strong>Current Affiliation:</strong><br>
+    <p style="margin-top:20px;"><strong>Current Affiliation</strong><br>
       Center for Computational Sciences, University of Tsukuba, Japan
     </p>
-    <p><strong>Additional Affiliation:</strong><br>
+    <p style="margin-top:20px;"><strong>Additional Affiliation</strong><br>
       Visiting Scientist, TRIP Headquarters, RIKEN, Japan
     </p>
   </div>
 </section>
 
-<footer>
-  © 2026 Anil Kumar
-</footer>
+<footer>© 2026 Anil Kumar &nbsp;·&nbsp; Theoretical Nuclear Physics</footer>
 
 </body>
 </html>
