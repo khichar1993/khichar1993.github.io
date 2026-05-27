@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Anil Kumar | Theoretical Nuclear Physicist</title>
+  <title>AK | Theoretical Nuclear Physicist</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; margin:0; padding:0; }
@@ -34,38 +34,15 @@
       text-transform: uppercase;
       font-weight: 700;
       border-radius: 4px;
-      transition: background .22s, color .22s, transform .18s;
-    }
-    nav .links a.pill-gold {
-      background: #f6d365; color: #0a1024;
-    }
-    nav .links a.pill-gold:hover {
-      background: #fbe38a; transform: translateY(-2px);
-    }
-    nav .links a.pill-outline {
-      background: transparent; color: #f6d365;
-      border: 1.5px solid rgba(246,211,101,.55);
-    }
-    nav .links a.pill-outline:hover {
-      background: rgba(246,211,101,.12);
-      border-color: #f6d365; transform: translateY(-2px);
-    }
-    nav .links a.pill-white {
-      background: rgba(255,255,255,.08);
       color: rgba(255,255,255,.88);
+      background: transparent;
       border: 1.5px solid rgba(255,255,255,.22);
+      transition: background .22s, color .22s, border-color .22s, transform .18s;
     }
-    nav .links a.pill-white:hover {
-      background: rgba(255,255,255,.18); transform: translateY(-2px);
-    }
-    nav .links a.pill-blue {
-      background: rgba(28,72,140,.75);
-      color: #ffffff;
-      border: 1.5px solid rgba(70,130,200,.55);
-    }
-    nav .links a.pill-blue:hover {
-      background: rgba(28,72,140,.95);
-      border-color: rgba(120,180,255,.8);
+    nav .links a:hover {
+      background: #f6d365;
+      color: #0a1024;
+      border-color: #f6d365;
       transform: translateY(-2px);
     }
 
@@ -105,10 +82,10 @@
 
 .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 78px;           /* ← bigger name */
+      font-size: 90px;
       font-weight: 900;
       line-height: 1.05;
-      color: #ffffff;
+      color: #f0ede8;
       margin-bottom: 22px;
       text-shadow: 0 4px 32px rgba(0,0,0,.45);
       letter-spacing: -1px;
@@ -116,7 +93,7 @@
 
     .hero-title {
       font-family: 'Libre Baskerville', serif;
-      font-size: 22px;           /* ← bigger role text */
+      font-size: 22px;
       letter-spacing: 4px;
       color: #f6d365;
       font-weight: 700;
@@ -127,8 +104,8 @@
 
     .hero-affiliation {
       font-family: 'Crimson Pro', serif;
-      font-size: 22px;           /* ← bigger affiliation */
-      color: rgba(255,255,255,.82);
+      font-size: 28px;
+      color: rgba(255,255,255,.85);
       font-style: italic;
       letter-spacing: 1px;
       margin-bottom: 36px;
@@ -180,8 +157,8 @@
       transition: transform .2s, box-shadow .2s;
     }
     .card:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,.13); }
-    .card a { color:#1a2035; text-decoration:none; }
-    .card a:hover { color:#b8895b; }
+    .card a { color:#1a4f8a; text-decoration:none; }
+    .card a:hover { color:#0d3566; }
 
     /* ── BUTTONS ─────────────────────────────────────────── */
     .btn {
@@ -233,14 +210,14 @@
 <nav>
   <span class="brand">ANIL KUMAR</span>
   <div class="links">
-    <a href="#home"         class="pill-gold">Home</a>
-    <a href="#about"        class="pill-outline">About</a>
-    <a href="#research"     class="pill-outline">Research</a>
-    <a href="#publications" class="pill-outline">Publications</a>
-    <a href="#cv"           class="pill-gold">CV</a>
-    <a href="#profiles"     class="pill-white">Profiles</a>
-    <a href="#links"        class="pill-blue">Important Links</a>
-    <a href="#contact"      class="pill-white">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#cv">CV</a>
+    <a href="#profiles">Profiles</a>
+    <a href="#links">Important Links</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -260,19 +237,19 @@
     <img src="profile.png" alt="Anil Kumar">
     <div class="about-text">
       <h2>Brief Bio-Data</h2>
-              <p>
-    I am a theoretical nuclear physicist working on nuclear structure,
-    weak interaction processes, and large-scale nuclear shell-model calculations.
-    My research focuses on beta decay, nuclear many-body methods, Monte Carlo Shell Model
-    (MCSM), No-Core Monte Carlo Shell Model (NC-MCSM), and ab initio approaches such as the Valence-Space In-Medium Similarity
-    Renormalization Group (VS-IMSRG).
-  </p>
+      <p>
+      I am a theoretical nuclear physicist working on nuclear structure,
+      weak interaction processes, and large-scale nuclear shell-model calculations.
+      My research focuses on beta decay, nuclear many-body methods, Monte Carlo Shell Model
+      (MCSM), No-Core Monte Carlo Shell Model (NC-MCSM), and ab initio approaches such as the Valence-Space In-Medium Similarity
+      Renormalization Group (VS-IMSRG).
+      </p>
 
-  <p style="margin-top:16px;">
-    More recently, I have been exploring Artificial Intelligence (AI) and Quantum Computing
-    applications in nuclear many-body physics, with the goal of developing next-generation
-    computational approaches for nuclear structure calculations.
-  </p>
+      <p style="margin-top:16px;">
+      More recently, I have been exploring Artificial Intelligence (AI) and Quantum Computing
+      applications in nuclear many-body physics, with the goal of developing next-generation
+      computational approaches for nuclear structure calculations.
+      </p>
     </div>
   </div>
 </section>
@@ -284,7 +261,6 @@
     <div class="card">Nuclear Structure Theory and Shell Evolution</div>
     <div class="card">Large-Scale Nuclear Shell-Model Calculations</div>
     <div class="card">Monte Carlo Shell Model and No-Core MCSM</div>
-    <div class="card">Quasiparticle-Vacuum Shell Model and Nuclear Deformation</div>
     <div class="card">Beta Decay and Nuclear Weak Processes</div>
     <div class="card">VS-IMSRG and Ab Initio Nuclear Many-Body Methods</div>
     <div class="card">Artificial Intelligence Applications in Nuclear Physics</div>
