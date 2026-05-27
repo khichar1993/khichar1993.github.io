@@ -11,7 +11,7 @@
     nav {
       position: fixed; top:0; width:100%; z-index:100;
       background: rgba(10,16,36,.96);
-      padding: 20px 55px;
+      padding: 16px 48px;
       display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid rgba(246,211,101,.18);
       backdrop-filter: blur(6px);
@@ -24,22 +24,50 @@
       font-weight: 900;
     }
     nav .links a {
-      color: rgba(255,255,255,.88);
-      margin-left: 26px;
+      display: inline-block;
+      margin-left: 8px;
+      padding: 7px 15px;
       text-decoration: none;
-      font-size: 15px;
       font-family: 'Libre Baskerville', serif;
-      letter-spacing: .5px;
-      transition: color .25s;
-      position: relative;
+      font-size: 12.5px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 4px;
+      transition: background .22s, color .22s, transform .18s;
     }
-    nav .links a::after {
-      content:''; position:absolute; bottom:-3px; left:0; right:0;
-      height:1.5px; background:#f6d365;
-      transform:scaleX(0); transition:transform .25s;
+    nav .links a.pill-gold {
+      background: #f6d365; color: #0a1024;
     }
-    nav .links a:hover { color:#f6d365; }
-    nav .links a:hover::after { transform:scaleX(1); }
+    nav .links a.pill-gold:hover {
+      background: #fbe38a; transform: translateY(-2px);
+    }
+    nav .links a.pill-outline {
+      background: transparent; color: #f6d365;
+      border: 1.5px solid rgba(246,211,101,.55);
+    }
+    nav .links a.pill-outline:hover {
+      background: rgba(246,211,101,.12);
+      border-color: #f6d365; transform: translateY(-2px);
+    }
+    nav .links a.pill-white {
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.88);
+      border: 1.5px solid rgba(255,255,255,.22);
+    }
+    nav .links a.pill-white:hover {
+      background: rgba(255,255,255,.18); transform: translateY(-2px);
+    }
+    nav .links a.pill-blue {
+      background: rgba(28,72,140,.75);
+      color: #ffffff;
+      border: 1.5px solid rgba(70,130,200,.55);
+    }
+    nav .links a.pill-blue:hover {
+      background: rgba(28,72,140,.95);
+      border-color: rgba(120,180,255,.8);
+      transform: translateY(-2px);
+    }
 
     /* ── HERO ────────────────────────────────────────────── */
     header#home {
@@ -75,18 +103,7 @@
       padding-left: 28px;
     }
 
-    /* ── KEY CHANGE: hero text ───────────────────── */
-    .hero-eyebrow {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 13px;
-      letter-spacing: 5px;
-      color: #f6d365;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      opacity: .9;
-    }
-
-    .hero h1 {
+.hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 78px;           /* ← bigger name */
       font-weight: 900;
@@ -122,55 +139,6 @@
       background: #f6d365;
       margin-bottom: 36px;
       opacity: .8;
-    }
-
-    /* ── nav quick-links shown in hero ──────────────────────
-       These are the "Home / Research / CV" labels you asked
-       to have styled with a coloured background               */
-    .hero-nav-pills {
-      display: flex; flex-wrap: wrap; gap: 12px;
-    }
-    .hero-nav-pills a {
-      display: inline-block;
-      padding: 9px 22px;
-      font-family: 'Libre Baskerville', serif;
-      font-size: 14px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: 700;
-      transition: background .25s, color .25s, transform .2s;
-    }
-    /* Gold pill — for primary destinations */
-    .hero-nav-pills a.pill-gold {
-      background: #f6d365;
-      color: #0a1024;
-    }
-    .hero-nav-pills a.pill-gold:hover {
-      background: #fbe38a;
-      transform: translateY(-2px);
-    }
-    /* Outline pill — for secondary destinations */
-    .hero-nav-pills a.pill-outline {
-      background: transparent;
-      color: #f6d365;
-      border: 1.5px solid rgba(246,211,101,.6);
-    }
-    .hero-nav-pills a.pill-outline:hover {
-      background: rgba(246,211,101,.12);
-      border-color: #f6d365;
-      transform: translateY(-2px);
-    }
-    /* Ghost white pill */
-    .hero-nav-pills a.pill-white {
-      background: rgba(255,255,255,.10);
-      color: #ffffff;
-      border: 1.5px solid rgba(255,255,255,.25);
-    }
-    .hero-nav-pills a.pill-white:hover {
-      background: rgba(255,255,255,.20);
-      transform: translateY(-2px);
     }
 
     /* ── SECTIONS ────────────────────────────────────────── */
@@ -265,36 +233,24 @@
 <nav>
   <span class="brand">ANIL KUMAR</span>
   <div class="links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#cv">CV</a>
-    <a href="#profiles">Profiles</a>
-    <a href="#links">Important Links</a>
-    <a href="#contact">Contact</a>
+    <a href="#home"         class="pill-gold">Home</a>
+    <a href="#about"        class="pill-outline">About</a>
+    <a href="#research"     class="pill-outline">Research</a>
+    <a href="#publications" class="pill-outline">Publications</a>
+    <a href="#cv"           class="pill-gold">CV</a>
+    <a href="#profiles"     class="pill-white">Profiles</a>
+    <a href="#links"        class="pill-blue">Important Links</a>
+    <a href="#contact"      class="pill-white">Contact</a>
   </div>
 </nav>
 
 <!-- ── HERO ──────────────────────────────────────────────── -->
 <header id="home">
   <div class="hero">
-    <div class="hero-eyebrow">Theoretical Nuclear Physics · Ab Initio Methods</div>
     <h1>Anil Kumar</h1>
     <div class="hero-divider"></div>
     <div class="hero-title">Theoretical Nuclear Physicist</div>
     <div class="hero-affiliation">University of Tsukuba, Japan &nbsp;|&nbsp; RIKEN, Japan</div>
-
-    <!-- coloured nav pills inside hero — the change you asked for -->
-    <div class="hero-nav-pills">
-      <a href="#home"         class="pill-gold">Home</a>
-      <a href="#about"        class="pill-outline">About</a>
-      <a href="#research"     class="pill-outline">Research</a>
-      <a href="#publications" class="pill-outline">Publications</a>
-      <a href="#cv"           class="pill-gold">CV</a>
-      <a href="#profiles"     class="pill-white">Profiles</a>
-      <a href="#contact"      class="pill-white">Contact</a>
-    </div>
   </div>
 </header>
 
@@ -304,7 +260,7 @@
     <img src="profile.png" alt="Anil Kumar">
     <div class="about-text">
       <h2>Brief Bio-Data</h2>
-        <p>
+              <p>
     I am a theoretical nuclear physicist working on nuclear structure,
     weak interaction processes, and large-scale nuclear shell-model calculations.
     My research focuses on beta decay, nuclear many-body methods, Monte Carlo Shell Model
@@ -328,6 +284,7 @@
     <div class="card">Nuclear Structure Theory and Shell Evolution</div>
     <div class="card">Large-Scale Nuclear Shell-Model Calculations</div>
     <div class="card">Monte Carlo Shell Model and No-Core MCSM</div>
+    <div class="card">Quasiparticle-Vacuum Shell Model and Nuclear Deformation</div>
     <div class="card">Beta Decay and Nuclear Weak Processes</div>
     <div class="card">VS-IMSRG and Ab Initio Nuclear Many-Body Methods</div>
     <div class="card">Artificial Intelligence Applications in Nuclear Physics</div>
