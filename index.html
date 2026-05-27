@@ -3,7 +3,8 @@
 <head>
   <title>Anil Kumar | Theoretical Nuclear Physicist</title>
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -17,22 +18,24 @@
       top: 0;
       width: 100%;
       padding: 16px 40px;
-      background: rgba(20,28,48,.92);
+      background: rgba(20,28,48,.94);
       z-index: 10;
     }
 
     nav a {
       color: white;
-      margin-right: 24px;
+      margin-right: 22px;
       text-decoration: none;
       letter-spacing: 2px;
       font-size: 13px;
       font-weight: bold;
     }
 
+    nav a:hover { color: #f6d365; }
+
     header {
       min-height: 100vh;
-      background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.60)),
+      background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.62)),
                   url("background.png");
       background-size: cover;
       background-position: center;
@@ -42,12 +45,10 @@
       color: white;
     }
 
-    .hero {
-      max-width: 760px;
-    }
+    .hero { max-width: 850px; }
 
     .name {
-      font-size: 62px;
+      font-size: 64px;
       font-weight: 800;
       margin-bottom: 10px;
     }
@@ -56,21 +57,17 @@
       letter-spacing: 4px;
       color: #f6d365;
       font-weight: bold;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
 
-    .hero p {
-      font-size: 20px;
-    }
+    .hero p { font-size: 20px; }
 
     section {
       padding: 70px 12%;
       background: white;
     }
 
-    section:nth-child(even) {
-      background: #f6f1ea;
-    }
+    section:nth-child(even) { background: #f6f1ea; }
 
     h2 {
       font-size: 34px;
@@ -97,7 +94,7 @@
       font-weight: bold;
     }
 
-    .profile-links a {
+    .profile-links a, .btn {
       display: inline-block;
       margin: 10px 10px 10px 0;
       padding: 12px 22px;
@@ -108,21 +105,19 @@
       font-weight: bold;
     }
 
-    .profile-links a:hover {
+    .profile-links a:hover, .btn:hover {
       background: #b8895b;
     }
 
     .contact-box {
       background: #1f2937;
       color: white;
-      padding: 28px;
+      padding: 30px;
       border-radius: 14px;
-      max-width: 760px;
+      max-width: 850px;
     }
 
-    .contact-box a {
-      color: #f6d365;
-    }
+    .contact-box a { color: #f6d365; }
 
     footer {
       padding: 25px;
@@ -136,10 +131,12 @@
 <body>
 
 <nav>
-  <a href="#home">DR. ANIL KUMAR</a>
+  <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
   <a href="#research">RESEARCH</a>
   <a href="#publications">PUBLICATIONS</a>
+  <a href="#cv">CV</a>
+  <a href="#profiles">PROFILES</a>
   <a href="#contact">CONTACT</a>
 </nav>
 
@@ -147,28 +144,46 @@
   <div class="hero">
     <div class="name">Anil Kumar</div>
     <div class="subtitle">THEORETICAL NUCLEAR PHYSICIST</div>
+
     <p>
       Postdoctoral Researcher<br>
       Center for Computational Sciences, University of Tsukuba, Japan
     </p>
+
+    <p>
+      Visiting Scientist<br>
+      TRIP Headquarters, RIKEN, Japan
+    </p>
+
+    <a class="btn" href="#about">About Me</a>
+    <a class="btn" href="Anil_Kumar_CV.pdf" target="_blank">Download CV</a>
   </div>
 </header>
 
 <section id="about">
   <h2>Brief Bio-Data</h2>
+
   <p>
-    I am a theoretical nuclear physicist working on nuclear structure and weak interaction
-    processes, large-scale shell-model calculations, Monte Carlo Shell Model,
-    ab initio approaches, and Artificial Intelligence and Quantum Computing applications
-    in nuclear many-body physics.
+    I am a theoretical nuclear physicist working on nuclear structure,
+    weak interaction processes, and large-scale nuclear shell-model calculations.
+    My research focuses on beta decay, nuclear many-body methods, Monte Carlo Shell Model
+    (MCSM), No-Core Monte Carlo Shell Model (NC-MCSM), and ab initio approaches such as the Valence-Space In-Medium Similarity
+    Renormalization Group (VS-IMSRG).
+  </p>
+
+  <p>
+    More recently, I have been exploring Artificial Intelligence (AI) and Quantum Computing
+    applications in nuclear many-body physics, with the goal of developing next-generation
+    computational approaches for nuclear structure calculations.
   </p>
 </section>
 
 <section id="research">
   <h2>Research Interests</h2>
+
   <div class="grid">
     <div class="card">Nuclear Structure Theory and Shell Evolution</div>
-    <div class="card">Large-Scale Shell-Model Calculations</div>
+    <div class="card">Large-Scale Nuclear Shell-Model Calculations</div>
     <div class="card">Monte Carlo Shell Model and No-Core MCSM</div>
     <div class="card">Beta Decay and Nuclear Weak Processes</div>
     <div class="card">VS-IMSRG and Ab Initio Nuclear Many-Body Methods</div>
@@ -180,8 +195,9 @@
 
 <section id="publications">
   <h2>Publications & Research Profiles</h2>
+
   <p>
-    My research publications, citation records, and academic profiles can be accessed through the following links:
+    My publications, citation records, and academic research profiles can be accessed through the following links:
   </p>
 
   <div class="profile-links">
@@ -199,11 +215,70 @@
   </div>
 </section>
 
+<section id="cv">
+  <h2>Curriculum Vitae</h2>
+
+  <p>
+    A complete copy of my Curriculum Vitae can be downloaded below.
+  </p>
+
+  <div class="profile-links">
+    <a href="Anil_Kumar_CV.pdf" target="_blank">
+      Download CV (PDF)
+    </a>
+  </div>
+</section>
+
+<section id="profiles">
+  <h2>Professional Profiles</h2>
+
+  <p>
+    My institutional and professional profiles are available through the following links:
+  </p>
+
+  <div class="profile-links">
+    <a href="https://www.ccs.tsukuba.ac.jp/eng/about-2/scientists/list/division-nuclear/" target="_blank">
+      University of Tsukuba Profile
+    </a>
+
+    <a href="https://rq.riken.jp/en/members/" target="_blank">
+      RIKEN TRIP Profile
+    </a>
+
+    <a href="https://www.linkedin.com/in/dr-anil-kumar-146825117/" target="_blank">
+      LinkedIn
+    </a>
+
+    <a href="https://github.com/khichar1993" target="_blank">
+      GitHub
+    </a>
+  </div>
+</section>
+
 <section id="contact">
   <h2>Contact</h2>
+
   <div class="contact-box">
-    <p><b>Email:</b> anilkhichar102@gmail.com; akumar5@ph.iitr.ac.in</p>
-    <p><b>GitHub:</b>
+    <p>
+      <strong>Email:</strong><br>
+      akumar5@ph.iitr.ac.in<br>
+      anilkhichar102@gmail.com
+    </p>
+
+    <p>
+      <strong>Current Affiliation:</strong><br>
+      Center for Computational Sciences<br>
+      University of Tsukuba, Japan
+    </p>
+
+    <p>
+      <strong>Additional Affiliation:</strong><br>
+      Visiting Scientist, TRIP Headquarters<br>
+      RIKEN, Japan
+    </p>
+
+    <p>
+      <strong>GitHub:</strong>
       <a href="https://github.com/khichar1993" target="_blank">khichar1993</a>
     </p>
   </div>
